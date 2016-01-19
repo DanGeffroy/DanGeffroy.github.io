@@ -1,13 +1,6 @@
-/* Custom Stylesheet */
-/**
- *
- * Made By Joash Pereira
- * Thanks for MaterializeCSS.com
- */
+.default_color{background-color: #00897b !important}
 
-.default_color{background-color: #2196F3 !important}
-
-.default_color_text{color: #2196F3 !important}
+.default_color_text{color: #00897b !important}
 
 .icon-block {
     padding: 0 15px;
@@ -20,7 +13,7 @@
     min-height: 632px;
     max-height: 864px;
     position: relative;
-    background-color: #2196F3;
+    background-color: #00897b;
 }
 
 #nav_f{
@@ -48,20 +41,20 @@
 
 .text_h2 {font-weight: 100;margin-bottom: 4%; line-height: 4.5rem;}
 
-.span_h2 {font-weight: 300;color: #2196F3;}
+.span_h2 {font-weight: 300;color: #00897b;}
 
-.text_b{color: #2196F3;}
+.text_b{color: #00897b;}
 
 .in{font-weight: 400 !important; font-style: normal !important;}
 
 .promo i {
-    color: #2196F3;
+    color: #00897b;
     font-size: 7rem;
     display: block;
 }
-.card-content a {color: #2196F3;}
+.card-content a {color: #00897b;}
 
-.card-content a:hover {color: #2196F3;}
+.card-content a:hover {color: #00897b;}
 
 #work, #team{background: rgb(247, 247, 247);}
 
