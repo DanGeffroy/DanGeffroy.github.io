@@ -26,6 +26,9 @@ blockquote{
 .firstButton:hover{
     background-color: #212121;
 }
+.buttonDiv{
+  margin-top: -9em;
+}
 #intro, #work, #team {padding-top: 4rem;}
 
 
