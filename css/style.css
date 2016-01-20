@@ -8,6 +8,24 @@
 blockquote{
   border-left:5px solid #00897b !important;
 }
+
+.firstButton{
+
+    text-decoration: none;
+    color: #fff;
+    background-color: #424242;
+    text-align: center;
+    letter-spacing: .5px;
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    -o-transition: .2s ease-out;
+    -ms-transition: .2s ease-out;
+    transition: .2s ease-out;
+    cursor: pointer;
+}
+.firstButton:hover{
+    background-color: #212121;
+}
 #intro, #work, #team {padding-top: 4rem;}
 
 
