@@ -5,7 +5,9 @@
 .icon-block {
     padding: 0 15px;
 }
-
+blockquote{
+  border-left:5px solid #00897b !important;
+}
 #intro, #work, #team {padding-top: 4rem;}
 
 
