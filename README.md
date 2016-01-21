@@ -2,6 +2,8 @@
 <p>This is my own website using the github pages service</p>
 
 ### Technos
-<p>I think i will try to use <A HREF="http://materializecss.com/" TITLE="description">Materialize</A> for front-end part</p>
+<p>I'v used <A HREF="http://materializecss.com/" TITLE="description">Materialize</A> for front-end part</p>
 
-<img src="https://31.media.tumblr.com/f46a440b8f0171421bd0f9b0fdb27517/tumblr_inline_nzyzc540VV1sqvl1v_500.gif" alt="HELP.">
+<img src="http://4.bp.blogspot.com/-x37kV_r1iAo/UkSc-mQweoI/AAAAAAAAOaU/y6RoPCArzgY/s1600/sunglasses.gif" alt="Swagg">
+
+### See the result <A HREF="http://adnnnn.github.io/" TITLE="description">here</A>.
