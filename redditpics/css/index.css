@@ -1,0 +1,257 @@
+@import url(https://fonts.googleapis.com/css?family=Kalam);
+@import url(https://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
+
+body{
+
+  background-color:#e3e3e3;
+  font-family:helvetica;
+}
+
+h1{
+  padding-top: 30px;
+  font-family: 'Kalam', cursive;
+}
+#logo{
+  width: 150px;
+  float:left;
+}
+
+.input{
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 15%;
+  margin-right: 15%;
+  background-color: white;
+  border-radius:5px;
+
+  -webkit-box-shadow: 3px 5px 5px 2px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 3px 5px 5px 2px rgba(0, 0, 0, 0.57);
+    box-shadow: 3px 5px 5px 2px rgba(0, 0, 0, 0.57);
+
+}
+.images{
+  padding-top: 15px;
+  border-radius:5px;
+  text-align: center;
+  margin-left: 7%;
+  margin-right: 7%;
+  padding-left: 5px;
+  padding-right :5px;
+
+
+  overflow: hidden;
+  margin : 2px;
+  display: inline-block;
+  position:relative
+}
+.tourImg{
+  background-color: white;
+  display: inline-block;
+  overflow: hidden;
+  position:relative;
+  margin :10px;
+  padding-bottom: 50px;
+
+  -webkit-box-shadow: 3px 5px 5px 2px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 3px 5px 5px 2px rgba(0, 0, 0, 0.57);
+  box-shadow: 3px 5px 5px 2px rgba(0, 0, 0, 0.57);
+
+  -moz-transition: all 0.4s ease-in-out 0s;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -o-transition: all 0.4s ease-in-out 0s;
+  -ms-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+.tourImg:hover{
+  z-index: 3;
+  -moz-transform: rotate(5deg) scale(1.12);
+  -webkit-transform: rotate(5deg) scale(1.12);
+  -o-transform: rotate(5deg) scale(1.12);
+  -ms-transform: rotate(5deg) scale(1.12);
+  transform: rotate(5deg) scale(1.12);
+}
+
+span{
+  position: absolute;
+  color: black;
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 22px;
+  left: 0px;
+  width: 100%;
+  bottom: 0px;
+  padding: 5px 5px;
+  padding-bottom: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+
+}
+.image {
+  margin: 10px;
+  background-color: white;
+  overflow: hidden;
+  position:relative;
+}
+.imgSizeLon0{
+  width: 181px;
+}
+.imgSizeLon1{
+  width: 216px;
+}
+.imgSizeLon2{
+  width: 320px;
+}
+.imgSizeLon3{
+  width: 640px;
+}
+.imgSizeLon4{
+  width: 960px;
+}
+.imgSizeLon5{
+  width: 1080px;
+}
+
+.imgSizeLar0{
+  height: 81px;
+}
+.imgSizeLar1{
+  height: 162px;
+}
+.imgSizeLar2{
+  height: 240px;
+}
+.imgSizeLar3{
+  height: 480px;
+}
+.imgSizeLar4{
+
+  height: 720px;
+}
+.imgSizeLar5{
+
+  height: 810px;
+}
+
+.image img{
+  overflow: hidden;
+}
+
+.form{
+  padding: 25px;
+  margin-bottom: 20px;
+
+}
+
+.textbox{
+  height:50px;
+  width:100%;
+  border-radius:3px;
+  border:rgba(0,0,0,.3) 2px solid;
+}
+
+.textbox:focus{
+  outline:none;
+  border:#1895D7 2px solid;
+  color:#1895D7;
+}
+
+.button{
+  height:50px;
+  width:100%;
+  border-radius:3px;
+  border:rgba(24,149,215,1) 0px solid;
+
+  background:rgba(24,149,215,1);
+  color:#FFF;
+  font-weight:bold;
+  font-size: 12pt;
+  transition:background .4s;
+  cursor:pointer;
+
+}
+
+.button:hover{
+  background:#0875AE;
+  background: url("../img/fuse.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  border:#1895D7 2px solid;
+
+}
+.dropdown{
+  float: left;
+}
+.resol{
+  margin-left: 20px;
+}
+.dropdown p {
+  padding-top:0px;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.dropdown select {
+  border:#1895D7 1px solid;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url('../img/arrow.png') no-repeat;
+  background-position: 83px 4px;
+  width: 100px;
+  text-indent: 0.01px;
+  text-overflow: "";
+
+  color: #1455a2;
+}
+.dropdown select:hover{
+
+}
+footer{
+  text-align: center;
+}
+footer a{
+  color: rgba(24,149,215,1);
+}
+
+@media (max-width: 900px) {
+  .input{
+    position: fixed;
+    z-index: 4;
+    margin-left: 5%;
+    width: 85%;
+  }
+  .form{
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+  h1{
+    padding-top: 0px;
+    font-family: 'Kalam', cursive;
+    font-size: 120%;
+  }
+  #logo{
+    width: 60px;
+  }
+  span{
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+  .images{
+    margin-top: 220px;
+  }
+  .textbox{
+    height:30px;
+  }
+  .button{
+    height:30px;
+    border : 2px;
+    font-size: 10pt;
+  }
+  .tourImg{
+    margin : 2px;
+    padding-bottom: 30px;
+  }
+
+}
