@@ -1,12 +1,12 @@
-.default_color{background-color: #00897b !important}
+.default_color{background-color: #ef6c00 !important}
 
-.default_color_text{color: #00897b !important}
+.default_color_text{color: #ef6c00 !important}
 
 .icon-block {
     padding: 0 15px;
 }
 blockquote{
-  border-left:5px solid #00897b !important;
+  border-left:5px solid #ef6c00 !important;
 }
 
 .firstButton{
@@ -36,7 +36,7 @@ blockquote{
     min-height: 632px;
     max-height: 864px;
     position: relative;
-    background-color: #00897b;
+    background-color: #ef6c00;
 }
 
 #nav_f{
@@ -64,20 +64,20 @@ blockquote{
 
 .text_h2 {font-weight: 100;margin-bottom: 4%; line-height: 4.5rem;}
 
-.span_h2 {font-weight: 300;color: #00897b;}
+.span_h2 {font-weight: 300;color: #ef6c00;}
 
-.text_b{color: #00897b;}
+.text_b{color: #e65100;}
 
 .in{font-weight: 400 !important; font-style: normal !important;}
 
 .promo i {
-    color: #00897b;
+    color: #e65100;
     font-size: 7rem;
     display: block;
 }
-.card-content a {color: #00897b;}
+.card-content a {color: #ef6c00;}
 
-.card-content a:hover {color: #00897b;}
+.card-content a:hover {color: #ef6c00;}
 
 #work, #team{background: rgb(247, 247, 247);}
 
