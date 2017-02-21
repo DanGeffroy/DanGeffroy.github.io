@@ -1,7 +1,9 @@
 .default_color{background-color: #ef6c00 !important}
 
 .default_color_text{color: #ef6c00 !important}
-
+.navbar-fixed{
+  z-index: 1000;
+}
 .icon-block {
     padding: 0 15px;
 }
