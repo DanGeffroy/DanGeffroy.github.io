@@ -12,7 +12,7 @@ blockquote{
     background-color: white;
 }
 .firstButton{
-
+    z-index: 1000;
     text-decoration: none;
     color: #fff;
     background-color: #424242;
@@ -280,4 +280,14 @@ nav a.button-collapse {
 
 footer.page-footer {
     margin-top: 0px !important;
+}
+
+#particles-js {
+  z-index: 1000;
+    width: 100%;
+    min-height: 642px;
+    max-height: 874px;
+    height: 700px;
+    background-position: 50% 50%;
+    position: absolute;
 }
