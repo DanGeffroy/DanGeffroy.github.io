@@ -9,3 +9,7 @@
 <img src="http://4.bp.blogspot.com/-x37kV_r1iAo/UkSc-mQweoI/AAAAAAAAOaU/y6RoPCArzgY/s1600/sunglasses.gif" alt="Swagg">
 
 ### See the result <A HREF="https://dangeffroy.github.io/" TITLE="link to my website">here</A>.
+
+### LightHouse report :green_heart:
+
+<img src="/lighthouse-report.png" alt="Swagg">
