@@ -1,0 +1,32 @@
+---
+import { contact } from "../../data/contact.json";
+---
+
+<div class="text-sm font-light">
+  <p class="text-black">Contact</p>
+
+  <div class="mt-3 grid gap-6">
+    {
+      contact.map((template) => (
+        <>
+          <div class="grid grid-cols-1 items-start text-neutral-500 md:grid-cols-3">
+            <div>
+              <p class="text-neutral-500">{template.type}</p>
+            </div>
+            <div class="w-full md:col-span-2">
+              <p class="text-black">
+                <a
+                  href={template.link}
+                  title={template.type}
+                  class="underline duration-200 after:content-['_↗'] hover:no-underline"
+                >
+                  {template.title}
+                </a>
+              </p>
+            </div>
+          </div>
+        </>
+      ))
+    }
+  </div>
+</div>

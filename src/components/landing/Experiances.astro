@@ -1,0 +1,33 @@
+---
+import { details } from "../../data/details.json";
+---
+
+<div class="text-sm font-light">
+  <p class="text-black">Work experience</p>
+
+  <div class="mt-3 grid gap-6">
+    {
+      details.map((template) => (
+        <>
+          <div class="grid  grid-cols-1 items-start text-neutral-500 md:grid-cols-3">
+            <div>
+              <p class="text-neutral-500">{template.date}</p>
+            </div>
+            <div class="w-full md:col-span-2">
+              <p class="text-black">
+                <a
+                  href={template.link}
+                  class="underline duration-200 after:content-['_↗'] hover:no-underline"
+                >
+                  {template.title}
+                </a>
+              </p>
+              <p class="">{template.desc}</p>
+              <p class="">{template.location}</p>
+            </div>
+          </div>
+        </>
+      ))
+    }
+  </div>
+</div>

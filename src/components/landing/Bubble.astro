@@ -1,0 +1,102 @@
+---
+import Message from "./Message.svelte";
+---
+
+<div class="chat-bubble">
+  <span class="chat-message font-heading text-left text-base lg:text-xl">
+    <div id="message-loader" class="loading-dots">
+      <div class="loading-dots--dot"></div>
+      <div class="loading-dots--dot"></div>
+      <div class="loading-dots--dot"></div>
+    </div>
+    <Message client:only="svelte" />
+  </span>
+
+  <style lang="scss">
+    $chat-bubble-bg: #dedede;
+    $chat-bubble-bg-mine: #3888ea;
+
+    .chat-bubble {
+      background: $chat-bubble-bg;
+      border-radius: 18px;
+      border-bottom-left-radius: 0px;
+      font-size: 14px;
+      line-height: 1.4em;
+      margin: 12px 24px;
+      padding: 12px;
+      position: absolute;
+      top: -50px;
+      left: 70px;
+      width: 100px;
+
+      // tail
+      &::before,
+      &::after {
+        content: "";
+        bottom: 0;
+        height: 20px;
+        left: -10px;
+        position: absolute;
+      }
+
+      &:before {
+        border-color: $chat-bubble-bg;
+        border-left-style: solid;
+        border-left-width: 20px;
+        border-bottom-right-radius: 50%;
+      }
+      &::after {
+        background: #ffffff;
+        border-bottom-right-radius: 50%;
+        width: 10px;
+        z-index: 1;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .chat-bubble {
+        width: 85px;
+        top: -60px;
+        left: 40px;
+      }
+    }
+    @keyframes dot-keyframes {
+      0% {
+        opacity: 0.4;
+        transform: scale(1, 1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.2, 1.2);
+      }
+
+      100% {
+        opacity: 0.4;
+        transform: scale(1, 1);
+      }
+    }
+
+    .loading-dots {
+      text-align: center;
+      width: 100%;
+
+      &--dot {
+        animation: dot-keyframes 1.5s infinite ease-in-out;
+        background-color: #000;
+        border-radius: 10px;
+        display: inline-block;
+        height: 8px;
+        width: 8px;
+
+        &:nth-child(2) {
+          animation-delay: 0.5s;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 1s;
+        }
+      }
+    }
+  </style>
+</div>

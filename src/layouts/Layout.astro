@@ -1,0 +1,19 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead />
+  </head>
+
+  <body class="bg-black">
+    <slot />
+    <style>
+      body {
+        background: url("/cartographer.png");
+      }
+    </style>
+  </body>
+</html>
