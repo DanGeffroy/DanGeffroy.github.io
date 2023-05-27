@@ -38,5 +38,57 @@ Use AstroSeo in all the pages you want different Seo than the index page
   <div class="mx-auto max-w-3xl bg-white px-8 pt-20 md:my-12 lg:mt-24">
     <Header />
     <Content />
+    <div class="pb-12 text-center">
+      <p class="tooltip text-7xl text-neutral-500">
+        ⏣<span class="tooltiptext bg-neutral-500 text-xl text-white"
+          >↑ ↑ ↓ ↓ ← → ← → B A</span>
+      </p>
+    </div>
   </div>
 </Layout>
+
+<style>
+  /* Tooltip container */
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .tooltip .tooltiptext {
+    width: 240px;
+    bottom: 100%;
+    left: -50%;
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  }
+
+  .tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(115 115 115 / var(--tw-bg-opacity)) transparent
+      transparent transparent;
+  }
+</style>

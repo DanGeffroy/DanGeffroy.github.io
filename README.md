@@ -12,4 +12,4 @@
 
 ### LightHouse report :green_heart:
 
-<img src="/lighthouse-report.png" alt="Swagg">
+<img src="lighthouse-report.png" alt="Swagg">
