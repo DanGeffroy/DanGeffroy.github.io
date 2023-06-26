@@ -1,0 +1,117 @@
+---
+import CursorInit from "./CursorInit.svelte";
+---
+
+<CursorInit client:load />
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hidden">
+  <defs>
+    <filter id="cursor-filter">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="my-blur"
+      ></feGaussianBlur>
+      <feColorMatrix
+        in="my-blur"
+        mode="matrix"
+        values="
+                  1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 20 -8"
+        result="my-gooey"></feColorMatrix>
+    </filter>
+  </defs>
+</svg>
+<div id="cursorContainer"></div>
+
+<style lang="scss" is:global>
+  #cursorContainer {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-filter: url("#cursor-filter");
+    filter: url("#cursor-filter");
+  }
+
+  [data-cursor] {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(120deg, #eb78ff, #00e5ff);
+    background-size: 1600% 1600%;
+    pointer-events: none;
+
+    z-index: 30;
+    transition: 0.15s linear;
+    animation: blobRadius 5s ease infinite, blobBackground 15s ease infinite;
+  }
+  [data-cursor="0"] {
+    transition: ease 0.1s;
+    width: 300px;
+    height: 300px;
+  }
+
+  [data-cursor="1"] {
+    transition: ease 0.12s;
+    width: 250px;
+    height: 250px;
+  }
+
+  [data-cursor="2"] {
+    transition: ease 0.14s;
+    width: 200px;
+    height: 200px;
+  }
+
+  [data-cursor="3"] {
+    transition: ease 0.18s;
+    width: 150px;
+    height: 150px;
+  }
+
+  [data-cursor="4"] {
+    transition: ease 0.24s;
+    width: 100px;
+    height: 100px;
+  }
+
+  [data-cursor="5"] {
+    transition: ease 0.32s;
+    width: 50px;
+    height: 50px;
+  }
+
+  @keyframes blobRadius {
+    0%,
+    100% {
+      border-radius: 43% 77% 80% 40% / 40% 40% 80% 80%;
+    }
+    20% {
+      border-radius: 47% 73% 61% 59% / 47% 75% 45% 73%;
+    }
+    40% {
+      border-radius: 46% 74% 74% 46% / 74% 58% 62% 46%;
+    }
+    60% {
+      border-radius: 47% 73% 61% 59% / 40% 40% 80% 80%;
+    }
+    80% {
+      border-radius: 50% 70% 52% 68% / 51% 61% 59% 69%;
+    }
+  }
+
+  @keyframes blobBackground {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .cursor-hover--a [data-cursor] {
+    width: 100px;
+    height: 100px;
+  }
+</style>

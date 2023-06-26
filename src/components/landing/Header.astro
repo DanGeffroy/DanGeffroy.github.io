@@ -13,7 +13,7 @@ import Bubble from "./Bubble.astro";
               <div class="relative">
                 <Bubble />
                 <img
-                  class="h-16 w-16 rounded-full border border-white/10 contrast-125 lg:h-24 lg:w-24"
+                  class="relative z-40 h-16 w-16 rounded-full border border-white/10 contrast-125 lg:h-24 lg:w-24"
                   src="/avatar.jpg"
                   alt="image"
                 />
@@ -24,18 +24,18 @@ import Bubble from "./Bubble.astro";
             </div>
 
             <div class="pt-1.5">
-              <h1 class="text-black lg:text-xl">
+              <h1 class="relative z-40 text-black lg:text-xl">
                 ⏣ Dan '<span
                   class="custom-gradient bg-clip-text font-bold text-transparent"
                   >adnnnnj</span
                 >' GEFFROY
               </h1>
-              <p class="text-sm font-light text-neutral-500">
+              <p class="relative z-40 text-sm font-light text-neutral-500">
                 Software Engineer in Nantes / France
               </p>
               <p>
                 <a
-                  class="text-xs underline duration-200 hover:no-underline"
+                  class="relative z-40 text-xs underline duration-200 hover:no-underline"
                   href="http://dangeffroy.github.io"
                   >http://dangeffroy.github.io</a
                 >
@@ -44,17 +44,17 @@ import Bubble from "./Bubble.astro";
           </div>
         </div>
         <div class="mt-24 text-sm font-light">
-          <p class="text-black">About</p>
+          <p class="relative z-40 text-black">About</p>
           <div class="mt-3 space-y-3 text-neutral-500">
-            <p>
+            <p class="relative z-40">
               For the past {totalExp} years, I have developed many types of front-ends
               from educational platforms to insurance websites.
             </p>
-            <p>
+            <p class="relative z-40">
               I Specialize in front-end development, but I also have experience
               with back-end development, DevOps and cloud infrastructure.
             </p>
-            <p>
+            <p class="relative z-40">
               I am skilled in leading software projects and have the ability to
               manage, mentor, and hire software engineers.
             </p>

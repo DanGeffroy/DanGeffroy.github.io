@@ -11,10 +11,10 @@ import { details } from "../../data/details.json";
         <>
           <div class="grid  grid-cols-1 items-start text-neutral-500 md:grid-cols-3">
             <div>
-              <p class="text-neutral-500">{template.date}</p>
+              <p class="relative z-40 text-neutral-500">{template.date}</p>
             </div>
             <div class="w-full md:col-span-2">
-              <p class="text-black">
+              <p class="relative z-40 text-black">
                 <a
                   href={template.link}
                   class="underline duration-200 after:content-['_↗'] hover:no-underline"
@@ -22,8 +22,8 @@ import { details } from "../../data/details.json";
                   {template.title}
                 </a>
               </p>
-              <p class="">{template.desc}</p>
-              <p class="">{template.location}</p>
+              <p class="relative z-40">{template.desc}</p>
+              <p class="relative z-40">{template.location}</p>
             </div>
           </div>
         </>

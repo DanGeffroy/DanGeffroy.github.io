@@ -11,10 +11,10 @@ import { contact } from "../../data/contact.json";
         <>
           <div class="grid grid-cols-1 items-start text-neutral-500 md:grid-cols-3">
             <div>
-              <p class="text-neutral-500">{template.type}</p>
+              <p class="relative z-40 text-neutral-500">{template.type}</p>
             </div>
             <div class="w-full md:col-span-2">
-              <p class="text-black">
+              <p class="relative z-40 text-black">
                 <a
                   href={template.link}
                   title={template.type}
