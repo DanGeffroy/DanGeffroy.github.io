@@ -83,6 +83,8 @@ export class Cursor {
   private hover(hoverTarget: string, el: Element, hover: boolean): void {
     this.isHovering = hover;
     if (hover) {
+      this.body.style.filter = "none";
+      this.cursorsList[0].style.animation = "none";
       const width = (el as any).offsetWidth;
       const height = (el as any).offsetHeight;
       const oTop = (el as any).getBoundingClientRect().top;
@@ -93,16 +95,17 @@ export class Cursor {
         oLeft - this.padding / 2
       }px, ${oTop - this.padding / 2}px, 0)`;
     } else {
+      this.cursorsList[0].style.animation = "";
       this.cursorsList[0].style.width = "";
       this.cursorsList[0].style.height = "";
+      this.body.style.filter = "";
     }
     const name = hoverTarget.replace(/[.#!]/g, "");
     this.body.classList.toggle(`cursor-hover--${name}`);
     this.cursorsList.slice(1).forEach((cursor) => {
       cursor.classList.toggle("hidden");
     });
-    this.body.classList.toggle("filter-none");
-    this.cursorsList[0].classList.toggle("animate-none");
+
     this.cursorsList[0].classList.toggle("rounded-md");
   }
 }
