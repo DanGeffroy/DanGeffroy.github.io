@@ -10,6 +10,7 @@
       new Cursor({
         targets: ["a", ".title", "#header"],
         count: 6,
+        padding: 15,
       });
     }
   });

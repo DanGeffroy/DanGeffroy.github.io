@@ -20,10 +20,10 @@ import CursorInit from "./CursorInit.svelte";
     </filter>
   </defs>
 </svg>
-<div id="cursorContainer"></div>
+<div class="cursorContainer" id="cursorContainer"></div>
 
 <style lang="scss" is:global>
-  #cursorContainer {
+  .cursorContainer {
     top: 0;
     left: 0;
     position: fixed;
@@ -111,7 +111,5 @@ import CursorInit from "./CursorInit.svelte";
   }
 
   .cursor-hover--a [data-cursor] {
-    width: 200px;
-    height: 200px;
   }
 </style>
