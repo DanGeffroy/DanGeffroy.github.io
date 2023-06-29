@@ -37,16 +37,21 @@ Use AstroSeo in all the pages you want different Seo than the index page
 />
 <Layout>
   <CursorWrapper />
-  <div class="mx-auto max-w-3xl bg-white px-8 pt-20 md:my-12 lg:mt-24">
-    <Header />
-    <Content />
+  <div class="flex">
+    <div class="w-0 md:w-1/2"></div>
+    <div
+      class="w-full bg-white px-8 pt-20 md:mx-12 md:my-12 md:w-1/2 lg:mt-24 lg:max-w-3xl"
+    >
+      <Header />
+      <Content />
 
-    <div class="pb-12 text-center">
-      <p class="tooltip text-7xl text-neutral-500">
-        ⏣<span class="tooltiptext bg-neutral-500 text-xl text-white"
-          >↑ ↑ ↓ ↓ ← → ← → B A</span
-        >
-      </p>
+      <div class="pb-12 text-center">
+        <p class="tooltip text-7xl text-neutral-500">
+          ⏣<span class="tooltiptext bg-neutral-500 text-xl text-white"
+            >↑ ↑ ↓ ↓ ← → ← → B A</span
+          >
+        </p>
+      </div>
     </div>
   </div>
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import CursorInit from "./CursorInit.svelte";
+import Blobs from "../Blobs/Blobs.astro";
 ---
 
 <CursorInit client:load />
@@ -20,10 +21,16 @@ import CursorInit from "./CursorInit.svelte";
     </filter>
   </defs>
 </svg>
-<div class="cursorContainer" id="cursorContainer"></div>
+<div class="cursorContainer hidden md:block" id="cursorContainer">
+  <Blobs blobId="fullBlob" />
+</div>
+<div class="blobContainer invisible hidden md:block" id="blobContainer">
+  <Blobs blobId="halfBlob" />
+</div>
 
 <style lang="scss" is:global>
-  .cursorContainer {
+  .cursorContainer,
+  .blobContainer {
     top: 0;
     left: 0;
     position: fixed;
@@ -34,16 +41,19 @@ import CursorInit from "./CursorInit.svelte";
     filter: url("#cursor-filter");
   }
 
+  .blobContainer {
+    width: 50vw;
+  }
+
   [data-cursor] {
     width: 100px;
     height: 100px;
-    background: linear-gradient(120deg, #eb78ff, #00e5ff);
-    background-size: 1600% 1600%;
+    background: #eb78ff;
     pointer-events: none;
 
     z-index: 30;
     transition: 0.15s linear;
-    animation: blobRadius 5s ease infinite, blobBackground 15s ease infinite;
+    animation: blobRadius 5s ease infinite;
   }
   [data-cursor="0"] {
     transition: ease 0.1s;
@@ -97,16 +107,6 @@ import CursorInit from "./CursorInit.svelte";
     }
     80% {
       border-radius: 50% 70% 52% 68% / 51% 61% 59% 69%;
-    }
-  }
-
-  @keyframes blobBackground {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
     }
   }
 

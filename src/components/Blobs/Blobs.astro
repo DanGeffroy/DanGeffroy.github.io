@@ -1,0 +1,112 @@
+---
+const { blobId } = Astro.props;
+---
+
+<div
+  id={blobId}
+  class={`position-center-left ${blobId === "halfBlob" ? "invisible" : ""}`}
+>
+  <div class="ball"></div>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+  <div class="blob blob-5"></div>
+  <div class="blob blob-6"></div>
+  <div class="blob blob-7"></div>
+  <div class="blob blob-8"></div>
+
+  <div class="drop drop-1"></div>
+  <div class="drop drop-2"></div>
+  <div class="drop drop-3"></div>
+  <div class="drop drop-4"></div>
+  <div class="drop drop-5"></div>
+  <div class="drop drop-6"></div>
+</div>
+
+<style lang="scss">
+  .position-center-left {
+    position: fixed;
+    top: 50vh;
+    left: 25vw;
+    transform: translate(-50%, -50%);
+  }
+
+  .ball {
+    position: relative;
+    background: #eb78ff;
+
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  @for $i from 1 through 8 {
+    .blob-#{$i} {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 70px;
+      height: 70px;
+      transform: rotate((random(300)) + deg);
+
+      &:after {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 70px;
+        height: 70px;
+        background: #eb78ff;
+
+        border-radius: 50%;
+        transform-origin: (80 - $i * 3) + px (80 - $i * 3) + px;
+        animation: rotate
+          (3 + calc($i / 2)) +
+          s
+          ease-in-out
+          calc($i/5) +
+          s
+          infinite;
+      }
+    }
+  }
+
+  @for $i from 1 through 6 {
+    .drop-#{$i} {
+      position: absolute;
+      top: 38px;
+      left: 38px;
+      width: (10 + $i) + px;
+      height: (10 + $i) + px;
+      transform: rotate((random(300)) + deg);
+
+      &:after {
+        position: absolute;
+        display: block;
+        content: "";
+        width: (10 + $i) + px;
+        height: (10 + $i) + px;
+        background: #eb78ff;
+        border-radius: 50%;
+        transform-origin: (80 - $i * 2) + px (80 - $i * 2) + px;
+        animation: rotate
+          calc(3.5 + $i / 5) +
+          s
+          ease-in-out
+          calc($i / 5) +
+          s
+          infinite;
+      }
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

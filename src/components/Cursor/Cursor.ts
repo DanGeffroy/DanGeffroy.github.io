@@ -14,7 +14,9 @@ export class Cursor {
 
   style = "position: fixed; pointer-events: none; top: 0; left: 0;";
   body = document.querySelector("#cursorContainer") as HTMLBodyElement;
-
+  blobContainer = document.querySelector("#blobContainer") as HTMLDivElement;
+  halfBlob = document.querySelector("#halfBlob") as HTMLDivElement;
+  fullBlob = document.querySelector("#fullBlob") as HTMLDivElement;
   constructor(private data: CursorInterface) {
     this.count = this.data.count || 1;
     this.targets = this.data.targets || false;
@@ -105,6 +107,10 @@ export class Cursor {
     this.cursorsList.slice(1).forEach((cursor) => {
       cursor.classList.toggle("hidden");
     });
+
+    this.blobContainer.classList.toggle("invisible");
+    this.fullBlob.classList.toggle("invisible");
+    this.halfBlob.classList.toggle("invisible");
 
     this.cursorsList[0].classList.toggle("rounded-md");
   }
