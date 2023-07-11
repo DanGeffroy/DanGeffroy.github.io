@@ -1,0 +1,45 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CursorWrapper from "../../components/Cursor/CursorWrapper.astro";
+import { AstroSeo } from "@astrolib/seo";
+---
+
+<!---
+Use AstroSeo in all the pages you want different Seo than the index page
+-->
+<AstroSeo
+  title="Dan 'adnnnnj' GEFFROY"
+  description="Dan 'adnnnnj' GEFFROY website"
+  canonical="https://dangeffroy.github.io"
+  openGraph={{
+    url: "https://dangeffroy.github.io",
+    title: "Dan 'adnnnnj' GEFFROY website",
+    description: "Dan 'adnnnnj' GEFFROY website",
+    images: [
+      {
+        url: "https://dangeffroy.github.io/opengraph/social-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Social Dan 'adnnnnj' GEFFROY website",
+        type: "image/jpeg",
+      },
+      { url: "https://dangeffroy.github.io/opengraph/social-og.jpg" },
+    ],
+    site_name: "Dan 'adnnnnj' GEFFROY",
+  }}
+  twitter={{
+    handle: "@TwitterHandle",
+    site: "@site",
+    cardType: "summary_large_image",
+  }}
+/>
+<Layout>
+    <div class="w-screen h-screen bg-white">
+
+    </div>
+  <CursorWrapper />
+</Layout>
+
+<style>
+
+</style>
