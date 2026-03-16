@@ -6,32 +6,53 @@
 
   const fullText = "adnnnnj";
   const typeSpeed = 120;
+  const deleteSpeed = 80;
   const startDelay = 800;
+  const pauseAfterType = 3000;
+  const pauseAfterDelete = 500;
 
   onMount(() => {
     let charIndex = 0;
-    let typeInterval: ReturnType<typeof setInterval> | undefined;
+    let activeInterval: ReturnType<typeof setInterval> | undefined;
+    let activeTimeout: ReturnType<typeof setTimeout> | undefined;
 
     const cursorInterval = setInterval(() => {
       showCursor = !showCursor;
     }, 530);
 
-    const startTimeout = setTimeout(() => {
-      typeInterval = setInterval(() => {
+    function startTyping() {
+      charIndex = 0;
+      activeInterval = setInterval(() => {
         if (charIndex < fullText.length) {
           displayed = fullText.slice(0, charIndex + 1);
           charIndex++;
         } else {
-          clearInterval(typeInterval);
-          typeInterval = undefined;
+          clearInterval(activeInterval);
+          activeInterval = undefined;
+          activeTimeout = setTimeout(startDeleting, pauseAfterType);
         }
       }, typeSpeed);
-    }, startDelay);
+    }
+
+    function startDeleting() {
+      activeInterval = setInterval(() => {
+        if (charIndex > 0) {
+          charIndex--;
+          displayed = fullText.slice(0, charIndex);
+        } else {
+          clearInterval(activeInterval);
+          activeInterval = undefined;
+          activeTimeout = setTimeout(startTyping, pauseAfterDelete);
+        }
+      }, deleteSpeed);
+    }
+
+    activeTimeout = setTimeout(startTyping, startDelay);
 
     return () => {
       clearInterval(cursorInterval);
-      clearTimeout(startTimeout);
-      if (typeInterval) clearInterval(typeInterval);
+      if (activeTimeout) clearTimeout(activeTimeout);
+      if (activeInterval) clearInterval(activeInterval);
     };
   });
 </script>

@@ -90,13 +90,15 @@ import TypeWriter from "./TypeWriter.svelte";
     border: 1px solid rgba(139, 92, 246, 0.1);
     border-radius: 12px;
     padding: 1.5rem;
-    background: rgba(24, 24, 27, 0.5);
-    backdrop-filter: blur(8px);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(24, 24, 27, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   }
 
   .about-card:hover {
-    border-color: rgba(139, 92, 246, 0.25);
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.05);
+    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba(30, 30, 34, 0.4);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.08);
   }
 </style>

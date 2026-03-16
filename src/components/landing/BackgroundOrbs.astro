@@ -26,6 +26,12 @@
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 70%);
     -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 70%);
+    animation: gridPulse 8s ease-in-out infinite;
+  }
+
+  @keyframes gridPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
   }
 
   .orb {
