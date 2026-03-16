@@ -12,6 +12,8 @@
   "dependencies": {
     "@astrojs/svelte": "^7.0.0",
     "@astrojs/tailwind": "^6.0.0",
+    "@fontsource/archivo": "^5.2.8",
+    "@fontsource/cormorant-garamond": "^5.2.11",
     "@fontsource/inter": "^5.0.1",
     "astro": "^5.0.0",
     "svelte": "^5.0.0",

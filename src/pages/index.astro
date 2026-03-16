@@ -6,9 +6,23 @@ import BackgroundOrbs from "../components/landing/BackgroundOrbs.astro";
 ---
 
 <Layout>
+  <div class="bg-atmosphere" aria-hidden="true"></div>
   <BackgroundOrbs />
   <main class="relative z-10 mx-auto max-w-2xl px-6 py-16 md:py-24">
     <Header />
     <Content />
   </main>
 </Layout>
+
+<style>
+  .bg-atmosphere {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 20%, rgba(200, 150, 90, 0.04), transparent),
+      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(107, 143, 113, 0.03), transparent),
+      radial-gradient(ellipse 70% 60% at 50% 100%, rgba(200, 150, 90, 0.025), transparent);
+  }
+</style>

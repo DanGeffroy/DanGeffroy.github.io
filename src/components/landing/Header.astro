@@ -13,12 +13,12 @@ import TypeWriter from "./TypeWriter.svelte";
       />
     </div>
     <div>
-      <h1 class="text-lg font-semibold text-white md:text-xl">
-        Dan '<span class="gradient-text"><TypeWriter client:load /></span>' GEFFROY
+      <h1 class="font-serif text-2xl font-semibold text-cream md:text-3xl">
+        Dan '<span class="accent-text"><TypeWriter client:load /></span>' GEFFROY
       </h1>
-      <p class="title-role text-sm text-zinc-400">Software Engineer in Nantes / France</p>
+      <p class="title-role text-sm text-cream-muted">Software Engineer in Nantes / France</p>
       <a
-        class="mt-0.5 inline-block text-xs text-zinc-500 transition-colors hover:text-accent-light"
+        class="mt-0.5 inline-block text-xs text-dark-300 transition-colors hover:text-accent-light"
         href="https://dangeffroy.github.io"
         >dangeffroy.github.io</a
       >
@@ -26,10 +26,10 @@ import TypeWriter from "./TypeWriter.svelte";
   </div>
 
   <div class="about-card mt-12">
-    <h2 class="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+    <h2 class="section-label">
       About
     </h2>
-    <div class="space-y-3 text-sm leading-relaxed text-zinc-400">
+    <div class="space-y-3 text-sm leading-relaxed text-cream-muted">
       <p>
         For the past {totalExp} years, I have developed many types of front-ends
         from educational platforms to insurance websites.
@@ -47,8 +47,10 @@ import TypeWriter from "./TypeWriter.svelte";
 </section>
 
 <style>
-  .gradient-text {
-    @apply bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text font-bold text-transparent;
+  .accent-text {
+    color: #C8965A;
+    font-weight: 700;
+    font-family: "Cormorant Garamond", Georgia, serif;
   }
 
   .avatar-ring {
@@ -60,9 +62,9 @@ import TypeWriter from "./TypeWriter.svelte";
     position: absolute;
     inset: -3px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #8b5cf6, #a855f7, #d946ef, #8b5cf6);
+    background: linear-gradient(135deg, #C8965A, #DBA86C, #6B8F71, #C8965A);
     background-size: 300% 300%;
-    animation: avatarGlow 4s ease-in-out infinite;
+    animation: avatarGlow 6s ease-in-out infinite;
     z-index: -1;
   }
 
@@ -72,7 +74,7 @@ import TypeWriter from "./TypeWriter.svelte";
   }
 
   .title-role {
-    animation: slideInRole 0.8s ease-out 0.3s both;
+    animation: slideInRole 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
   }
 
   @keyframes slideInRole {
@@ -87,18 +89,18 @@ import TypeWriter from "./TypeWriter.svelte";
   }
 
   .about-card {
-    border: 1px solid rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(200, 150, 90, 0.1);
     border-radius: 12px;
     padding: 1.5rem;
-    background: rgba(24, 24, 27, 0.3);
+    background: rgba(26, 24, 22, 0.4);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   }
 
   .about-card:hover {
-    border-color: rgba(139, 92, 246, 0.3);
-    background: rgba(30, 30, 34, 0.4);
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.08);
+    border-color: rgba(200, 150, 90, 0.25);
+    background: rgba(32, 29, 26, 0.5);
+    box-shadow: 0 0 24px rgba(200, 150, 90, 0.06);
   }
 </style>

@@ -30,21 +30,18 @@ const categories: SkillCategory[] = [
 ---
 
 <section class="fade-in-delay-1">
-  <h2 class="flex items-center gap-2 mb-6 text-xs font-bold tracking-[0.05em] uppercase bg-gradient-to-br from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
-    <span class="inline-block w-6 h-0.5 bg-gradient-to-r from-violet-500 to-purple-500 rounded-[2px] shrink-0" aria-hidden="true"></span>
-    Skills
-  </h2>
+  <h2 class="section-label">Skills</h2>
 
   <div class="grid grid-cols-2 gap-3 max-[480px]:grid-cols-1">
     {
       categories.map((category, i) => (
         <div
-          class="group relative border border-violet-500/[0.08] rounded-xl p-4 bg-zinc-900/25 backdrop-blur-md transition-all duration-300 overflow-hidden animate-[cardSlideIn_0.5s_ease-out_both] hover:border-violet-500/30 hover:bg-zinc-900/40 hover:shadow-[0_4px_24px_rgba(139,92,246,0.08)] hover:-translate-y-0.5"
-          style={`animation-delay: ${0.1 + i * 0.08}s`}
+          class="skill-card group"
+          style={`animation-delay: ${0.3 + i * 0.1}s`}
         >
-          <div class="absolute top-0 left-0 w-[3px] h-0 bg-gradient-to-b from-violet-500 to-purple-500 rounded-[3px] transition-[height] duration-300 group-hover:h-full" />
+          <div class="card-accent-bar" />
           <div class="flex items-center gap-2 mb-3">
-            <div class="flex items-center justify-center shrink-0 w-8 h-8 rounded-lg bg-violet-500/[0.08] text-violet-400/70 transition-all duration-300 group-hover:bg-violet-500/15 group-hover:text-violet-400" aria-hidden="true">
+            <div class="skill-icon" aria-hidden="true">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -55,11 +52,11 @@ const categories: SkillCategory[] = [
                 <path d={category.icon} />
               </svg>
             </div>
-            <h3 class="text-sm font-semibold text-zinc-100">{category.title}</h3>
+            <h3 class="font-serif text-base font-semibold text-cream">{category.title}</h3>
           </div>
           <div class="flex flex-wrap gap-1.5">
             {category.skills.map((skill) => (
-              <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-violet-400/90 bg-violet-500/10 border border-violet-500/15 rounded-full transition-all duration-200 whitespace-nowrap group-hover:bg-violet-500/15 group-hover:border-violet-500/25">{skill}</span>
+              <span class="skill-tag">{skill}</span>
             ))}
           </div>
         </div>
@@ -78,5 +75,77 @@ const categories: SkillCategory[] = [
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  .skill-card {
+    position: relative;
+    border: 1px solid rgba(200, 150, 90, 0.08);
+    border-radius: 12px;
+    padding: 1rem;
+    background: rgba(26, 24, 22, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    animation: cardSlideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .skill-card:hover {
+    border-color: rgba(200, 150, 90, 0.25);
+    background: rgba(32, 29, 26, 0.45);
+    box-shadow: 0 4px 24px rgba(200, 150, 90, 0.06);
+    transform: translateY(-2px);
+  }
+
+  .card-accent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, #C8965A, #DBA86C);
+    border-radius: 3px;
+    transition: height 0.3s ease;
+  }
+
+  .skill-card:hover .card-accent-bar {
+    height: 100%;
+  }
+
+  .skill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 8px;
+    background: rgba(200, 150, 90, 0.08);
+    color: rgba(200, 150, 90, 0.6);
+    transition: all 0.3s ease;
+  }
+
+  .skill-card:hover .skill-icon {
+    background: rgba(200, 150, 90, 0.15);
+    color: #C8965A;
+  }
+
+  .skill-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(200, 150, 90, 0.85);
+    background: rgba(200, 150, 90, 0.08);
+    border: 1px solid rgba(200, 150, 90, 0.12);
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .skill-card:hover .skill-tag {
+    background: rgba(200, 150, 90, 0.12);
+    border-color: rgba(200, 150, 90, 0.2);
   }
 </style>

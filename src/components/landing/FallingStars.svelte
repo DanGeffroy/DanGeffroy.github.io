@@ -10,7 +10,9 @@
     speedY: number;
     speedX: number;
     opacity: number;
-    tailLength: number;
+    baseOpacity: number;
+    phase: number;
+    phaseSpeed: number;
     colorIndex: number;
   }
 
@@ -19,8 +21,8 @@
     let animationId: number;
     let particles: Particle[] = [];
 
-    const PARTICLE_COUNT = 60;
-    const COLORS = ["#8b5cf6", "#a78bfa", "#7c3aed", "#a855f7", "#c084fc"];
+    const PARTICLE_COUNT = 35;
+    const COLORS = ["#C8965A", "#DBA86C", "#A67832", "#6B8F71", "#8AAF8F"];
 
     function resize() {
       canvas.width = window.innerWidth;
@@ -31,14 +33,17 @@
     }
 
     function createParticle(): Particle {
+      const baseOpacity = Math.random() * 0.35 + 0.1;
       return {
         x: Math.random() * canvas.width,
-        y: Math.random() * -canvas.height,
-        size: Math.random() * 2 + 0.5,
-        speedY: Math.random() * 1.5 + 0.5,
-        speedX: (Math.random() - 0.5) * 0.4,
-        opacity: Math.random() * 0.6 + 0.2,
-        tailLength: Math.random() * 20 + 10,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 1.8 + 0.4,
+        speedY: (Math.random() - 0.5) * 0.3,
+        speedX: (Math.random() - 0.5) * 0.2,
+        opacity: baseOpacity,
+        baseOpacity,
+        phase: Math.random() * Math.PI * 2,
+        phaseSpeed: Math.random() * 0.015 + 0.005,
         colorIndex: Math.floor(Math.random() * COLORS.length),
       };
     }
@@ -47,9 +52,7 @@
       resize();
       particles = [];
       for (let i = 0; i < PARTICLE_COUNT; i++) {
-        const p = createParticle();
-        p.y = Math.random() * canvas.height;
-        particles.push(p);
+        particles.push(createParticle());
       }
     }
 
@@ -59,30 +62,17 @@
       for (const p of particles) {
         const color = COLORS[p.colorIndex];
 
-        const gradient = ctx.createLinearGradient(
-          p.x, p.y - p.tailLength,
-          p.x, p.y,
-        );
-        gradient.addColorStop(0, "transparent");
-        gradient.addColorStop(1, color);
-
-        ctx.beginPath();
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = p.size;
-        ctx.globalAlpha = p.opacity;
-        ctx.moveTo(p.x - p.speedX * p.tailLength, p.y - p.tailLength);
-        ctx.lineTo(p.x, p.y);
-        ctx.stroke();
-
+        // Main dot
         ctx.beginPath();
         ctx.fillStyle = color;
         ctx.globalAlpha = p.opacity;
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.globalAlpha = p.opacity * 0.3;
+        // Soft glow
+        ctx.globalAlpha = p.opacity * 0.2;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2);
         ctx.fillStyle = color;
         ctx.fill();
       }
@@ -94,15 +84,14 @@
       for (const p of particles) {
         p.y += p.speedY;
         p.x += p.speedX;
+        p.phase += p.phaseSpeed;
+        p.opacity = p.baseOpacity * (0.5 + 0.5 * Math.sin(p.phase));
 
-        if (p.y > canvas.height + p.tailLength) {
-          p.y = -p.tailLength;
-          p.x = Math.random() * canvas.width;
-          p.opacity = Math.random() * 0.6 + 0.2;
-          p.speedY = Math.random() * 1.5 + 0.5;
-          p.speedX = (Math.random() - 0.5) * 0.4;
-          p.colorIndex = Math.floor(Math.random() * COLORS.length);
-        }
+        // Wrap around screen edges gently
+        if (p.y > canvas.height + 10) p.y = -10;
+        if (p.y < -10) p.y = canvas.height + 10;
+        if (p.x > canvas.width + 10) p.x = -10;
+        if (p.x < -10) p.x = canvas.width + 10;
       }
     }
 
