@@ -65,8 +65,9 @@ import { details } from "../../data/details.json";
     border: 1px solid rgba(139, 92, 246, 0.08);
     border-radius: 12px;
     padding: 1rem 1.25rem;
-    background: rgba(24, 24, 27, 0.4);
-    backdrop-filter: blur(8px);
+    background: rgba(24, 24, 27, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     transition: all 0.3s ease;
     text-decoration: none;
     overflow: hidden;
@@ -74,9 +75,9 @@ import { details } from "../../data/details.json";
   }
 
   .experience-card:hover {
-    border-color: rgba(139, 92, 246, 0.25);
-    background: rgba(30, 30, 34, 0.6);
-    box-shadow: 0 4px 24px rgba(139, 92, 246, 0.06);
+    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba(30, 30, 34, 0.4);
+    box-shadow: 0 4px 24px rgba(139, 92, 246, 0.08);
     transform: translateY(-2px);
   }
 
