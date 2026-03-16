@@ -4,22 +4,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        customPrimary: "rgb(99, 102, 241)",
-        customSecondary: "rgb(161, 163, 247)",
-        customDarkBg1: "rgb(31, 32, 35)",
-        customDarkBg2: "rgb(38, 39, 43)",
-        customDarkBg3: "rgb(48, 49, 54)",
-        customDarkBg3Hover: "rgb(55, 56, 62)",
-        customContentSubtitle: "rgb(178, 184, 205)",
-        customGrayBorder: "rgb(255,255,255,0.1)",
-        customGrayBorder2: "#ffffff12",
-        customGrayText: "rgb(174, 178, 183)",
-        customDarkBgTransparent: "rgb(31, 32, 35, 0.7)",
-        customDarkBgTransparentDarker: "rgb(0,0,0,0.5)",
-        customDarkBgTransparentLighter: "rgb(48, 49, 54, 0.7)",
+        dark: {
+          DEFAULT: "#0a0a0b",
+          50: "#18181b",
+          100: "#1e1e22",
+          200: "#27272a",
+          300: "#3f3f46",
+        },
+        accent: {
+          DEFAULT: "#8b5cf6",
+          light: "#a78bfa",
+          dark: "#7c3aed",
+        },
       },
       fontFamily: {
-        Inter: "Inter",
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
     },
   },

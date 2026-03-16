@@ -2,32 +2,38 @@
 import { details } from "../../data/details.json";
 ---
 
-<div class="text-sm font-light">
-  <p class="relative z-40 text-black">Work experience</p>
+<section class="fade-in-delay-1">
+  <h2
+    class="mb-6 text-xs font-semibold uppercase tracking-wider text-zinc-500"
+  >
+    Work experience
+  </h2>
 
-  <div class="mt-3 grid gap-6">
+  <div class="space-y-1">
     {
       details.map((template) => (
-        <>
-          <div class="grid  grid-cols-1 items-start text-neutral-500 md:grid-cols-3">
-            <div>
-              <p class="relative z-40 text-neutral-500">{template.date}</p>
-            </div>
-            <div class="w-full md:col-span-2">
-              <p class="relative z-40 text-black">
-                <a
-                  href={template.link}
-                  class="underline duration-200 after:content-['_↗'] hover:no-underline"
-                >
-                  {template.title}
-                </a>
-              </p>
-              <p class="relative z-40">{template.desc}</p>
-              <p class="relative z-40">{template.location}</p>
-            </div>
+        <a
+          href={template.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group -mx-3 flex flex-col gap-1 rounded-lg px-3 py-4 transition-colors hover:bg-dark-100 md:flex-row md:items-baseline md:gap-6"
+        >
+          <span class="shrink-0 text-xs tabular-nums text-zinc-600 md:w-24">
+            {template.date}
+          </span>
+          <div class="min-w-0 flex-1">
+            <p class="text-sm font-medium text-zinc-200 group-hover:text-white">
+              {template.title}
+              <span class="ml-1 inline-block text-zinc-600 transition-transform group-hover:translate-x-0.5">
+                ↗
+              </span>
+            </p>
+            <p class="mt-0.5 text-sm text-zinc-500">{template.desc}</p>
+            <p class="mt-0.5 text-xs text-zinc-600">{template.location}</p>
           </div>
-        </>
+        </a>
       ))
     }
   </div>
-</div>
+</section>
+

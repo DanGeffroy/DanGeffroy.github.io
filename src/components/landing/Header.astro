@@ -1,72 +1,52 @@
 ---
 import { totalExp } from "../../data/details.json";
-import Bubble from "./Bubble.astro";
 ---
 
-<section>
-  <div class="mx-auto max-w-7xl pb-8">
-    <div class="mx-auto max-w-xl">
-      <div>
-        <div class="md:flex md:items-center md:justify-between md:space-x-5">
-          <div class="flex items-center space-x-5">
-            <div class="flex-shrink-0">
-              <div class="relative">
-                <Bubble />
-                <img
-                  class="relative z-40 h-16 w-16 rounded-full border border-white/10 contrast-125 lg:h-24 lg:w-24"
-                  src="/avatar.jpg"
-                  alt="image"
-                />
-                <span
-                  class="absolute inset-0 rounded-full shadow-inner"
-                  aria-hidden="true"></span>
-              </div>
-            </div>
+<section class="fade-in pb-16">
+  <div class="flex items-center gap-5">
+    <div class="shrink-0">
+      <img
+        class="h-16 w-16 rounded-full ring-2 ring-accent/30 md:h-20 md:w-20"
+        src="/avatar.jpg"
+        alt="Dan GEFFROY"
+      />
+    </div>
+    <div>
+      <h1 class="text-lg font-semibold text-white md:text-xl">
+        Dan '<span class="gradient-text">adnnnnj</span>' GEFFROY
+      </h1>
+      <p class="text-sm text-zinc-400">Software Engineer in Nantes / France</p>
+      <a
+        class="mt-0.5 inline-block text-xs text-zinc-500 transition-colors hover:text-accent-light"
+        href="https://dangeffroy.github.io"
+        >dangeffroy.github.io</a
+      >
+    </div>
+  </div>
 
-            <div class="pt-1.5">
-              <h1 class="relative z-40 text-black lg:text-xl">
-                ⏣ Dan '<span
-                  class="custom-gradient bg-clip-text font-bold text-transparent"
-                  >adnnnnj</span
-                >' GEFFROY
-              </h1>
-              <p class="relative z-40 text-sm font-light text-neutral-500">
-                Software Engineer in Nantes / France
-              </p>
-              <p>
-                <a
-                  class="relative z-40 text-xs underline duration-200 hover:no-underline"
-                  href="http://dangeffroy.github.io"
-                  >http://dangeffroy.github.io</a
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="mt-24 text-sm font-light">
-          <p class="relative z-40 text-black">About</p>
-          <div class="mt-3 space-y-3 text-neutral-500">
-            <p class="relative z-40">
-              For the past {totalExp} years, I have developed many types of front-ends
-              from educational platforms to insurance websites.
-            </p>
-            <p class="relative z-40">
-              I Specialize in front-end development, but I also have experience
-              with back-end development, DevOps and cloud infrastructure.
-            </p>
-            <p class="relative z-40">
-              I am skilled in leading software projects and have the ability to
-              manage, mentor, and hire software engineers.
-            </p>
-          </div>
-        </div>
-      </div>
+  <div class="mt-12">
+    <h2 class="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+      About
+    </h2>
+    <div class="space-y-3 text-sm leading-relaxed text-zinc-400">
+      <p>
+        For the past {totalExp} years, I have developed many types of front-ends
+        from educational platforms to insurance websites.
+      </p>
+      <p>
+        I Specialize in front-end development, but I also have experience with
+        back-end development, DevOps and cloud infrastructure.
+      </p>
+      <p>
+        I am skilled in leading software projects and have the ability to manage,
+        mentor, and hire software engineers.
+      </p>
     </div>
   </div>
 </section>
 
 <style>
-  .custom-gradient {
-    @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+  .gradient-text {
+    @apply bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text font-bold text-transparent;
   }
 </style>
