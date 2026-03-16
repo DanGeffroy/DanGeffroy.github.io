@@ -9,22 +9,23 @@ import { contact } from "../../data/contact.json";
     Contact
   </h2>
 
-  <div class="space-y-1">
+  <div class="contact-grid">
     {
-      contact.map((template) => (
+      contact.map((template, i) => (
         <a
           href={template.link}
           title={template.type}
           target="_blank"
           rel="noopener noreferrer"
-          class="group -mx-3 flex flex-col gap-1 rounded-lg px-3 py-3 transition-colors hover:bg-dark-100 md:flex-row md:items-baseline md:gap-6"
+          class="contact-card group"
+          style={`animation-delay: ${0.3 + i * 0.06}s`}
         >
-          <span class="shrink-0 text-xs font-medium text-zinc-500 md:w-24">
+          <span class="text-xs font-medium text-zinc-500 group-hover:text-accent-light transition-colors">
             {template.type}
           </span>
-          <span class="min-w-0 truncate text-sm text-zinc-300 group-hover:text-white">
+          <span class="mt-1 block min-w-0 truncate text-sm text-zinc-300 group-hover:text-white">
             {template.title}
-            <span class="ml-1 inline-block text-zinc-600 transition-transform group-hover:translate-x-0.5">
+            <span class="ml-1 inline-block text-zinc-600 transition-transform group-hover:translate-x-1">
               ↗
             </span>
           </span>
@@ -33,4 +34,41 @@ import { contact } from "../../data/contact.json";
     }
   </div>
 </section>
+
+<style>
+  .contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contact-card {
+    display: block;
+    border: 1px solid rgba(139, 92, 246, 0.06);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    background: rgba(24, 24, 27, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: cardSlideIn 0.5s ease-out both;
+  }
+
+  .contact-card:hover {
+    border-color: rgba(139, 92, 246, 0.2);
+    background: rgba(30, 30, 34, 0.5);
+    box-shadow: 0 2px 16px rgba(139, 92, 246, 0.04);
+    transform: translateX(4px);
+  }
+
+  @keyframes cardSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
 
