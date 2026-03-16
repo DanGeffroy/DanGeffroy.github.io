@@ -9,27 +9,42 @@ import { details } from "../../data/details.json";
     Work experience
   </h2>
 
-  <div class="space-y-1">
+  <div class="card-grid">
     {
-      details.map((template) => (
+      details.map((template, i) => (
         <a
           href={template.link}
           target="_blank"
           rel="noopener noreferrer"
-          class="group -mx-3 flex flex-col gap-1 rounded-lg px-3 py-4 transition-colors hover:bg-dark-100 md:flex-row md:items-baseline md:gap-6"
+          class="experience-card group"
+          style={`animation-delay: ${0.1 + i * 0.08}s`}
         >
-          <span class="shrink-0 text-xs tabular-nums text-zinc-600 md:w-24">
-            {template.date}
-          </span>
-          <div class="min-w-0 flex-1">
-            <p class="text-sm font-medium text-zinc-200 group-hover:text-white">
+          <div class="card-accent" />
+          <div class="card-body">
+            <span class="shrink-0 text-xs tabular-nums text-zinc-600">
+              {template.date}
+            </span>
+            <p class="mt-1 text-sm font-medium text-zinc-200 group-hover:text-white">
               {template.title}
-              <span class="ml-1 inline-block text-zinc-600 transition-transform group-hover:translate-x-0.5">
+              <span class="ml-1 inline-block text-zinc-600 transition-transform group-hover:translate-x-1">
                 ↗
               </span>
             </p>
-            <p class="mt-0.5 text-sm text-zinc-500">{template.desc}</p>
-            <p class="mt-0.5 text-xs text-zinc-600">{template.location}</p>
+            <p class="mt-1.5 text-sm text-zinc-500">{template.desc}</p>
+            <p class="mt-1 text-xs text-zinc-600">
+              <svg
+                aria-label="Location:"
+                class="location-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width="12"
+                height="12"
+              >
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
+              </svg>
+              {template.location}
+            </p>
           </div>
         </a>
       ))
@@ -37,3 +52,70 @@ import { details } from "../../data/details.json";
   </div>
 </section>
 
+<style>
+  .card-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .experience-card {
+    position: relative;
+    display: block;
+    border: 1px solid rgba(139, 92, 246, 0.08);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    background: rgba(24, 24, 27, 0.4);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    overflow: hidden;
+    animation: cardSlideIn 0.5s ease-out both;
+  }
+
+  .experience-card:hover {
+    border-color: rgba(139, 92, 246, 0.25);
+    background: rgba(30, 30, 34, 0.6);
+    box-shadow: 0 4px 24px rgba(139, 92, 246, 0.06);
+    transform: translateY(-2px);
+  }
+
+  .card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, #8b5cf6, #a855f7);
+    border-radius: 3px;
+    transition: height 0.3s ease;
+  }
+
+  .experience-card:hover .card-accent {
+    height: 100%;
+  }
+
+  .card-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .location-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px;
+    margin-top: -2px;
+    color: currentColor;
+  }
+
+  @keyframes cardSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

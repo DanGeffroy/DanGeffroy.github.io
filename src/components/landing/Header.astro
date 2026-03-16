@@ -1,21 +1,22 @@
 ---
 import { totalExp } from "../../data/details.json";
+import TypeWriter from "./TypeWriter.svelte";
 ---
 
 <section class="fade-in pb-16">
   <div class="flex items-center gap-5">
-    <div class="shrink-0">
+    <div class="avatar-ring shrink-0">
       <img
-        class="h-16 w-16 rounded-full ring-2 ring-accent/30 md:h-20 md:w-20"
+        class="h-16 w-16 rounded-full md:h-20 md:w-20"
         src="/avatar.jpg"
         alt="Dan GEFFROY"
       />
     </div>
     <div>
       <h1 class="text-lg font-semibold text-white md:text-xl">
-        Dan '<span class="gradient-text">adnnnnj</span>' GEFFROY
+        Dan '<span class="gradient-text"><TypeWriter client:load /></span>' GEFFROY
       </h1>
-      <p class="text-sm text-zinc-400">Software Engineer in Nantes / France</p>
+      <p class="title-role text-sm text-zinc-400">Software Engineer in Nantes / France</p>
       <a
         class="mt-0.5 inline-block text-xs text-zinc-500 transition-colors hover:text-accent-light"
         href="https://dangeffroy.github.io"
@@ -24,7 +25,7 @@ import { totalExp } from "../../data/details.json";
     </div>
   </div>
 
-  <div class="mt-12">
+  <div class="about-card mt-12">
     <h2 class="mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-500">
       About
     </h2>
@@ -48,5 +49,54 @@ import { totalExp } from "../../data/details.json";
 <style>
   .gradient-text {
     @apply bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text font-bold text-transparent;
+  }
+
+  .avatar-ring {
+    position: relative;
+  }
+
+  .avatar-ring::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8b5cf6, #a855f7, #d946ef, #8b5cf6);
+    background-size: 300% 300%;
+    animation: avatarGlow 4s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  @keyframes avatarGlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .title-role {
+    animation: slideInRole 0.8s ease-out 0.3s both;
+  }
+
+  @keyframes slideInRole {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .about-card {
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: rgba(24, 24, 27, 0.5);
+    backdrop-filter: blur(8px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .about-card:hover {
+    border-color: rgba(139, 92, 246, 0.25);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.05);
   }
 </style>
