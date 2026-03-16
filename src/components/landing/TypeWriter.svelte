@@ -9,23 +9,30 @@
   const startDelay = 800;
 
   onMount(() => {
-    let i = 0;
+    let charIndex = 0;
+    let typeInterval: ReturnType<typeof setInterval> | undefined;
+
     const cursorInterval = setInterval(() => {
       showCursor = !showCursor;
     }, 530);
 
-    setTimeout(() => {
-      const typeInterval = setInterval(() => {
-        if (i < fullText.length) {
-          displayed = fullText.slice(0, i + 1);
-          i++;
+    const startTimeout = setTimeout(() => {
+      typeInterval = setInterval(() => {
+        if (charIndex < fullText.length) {
+          displayed = fullText.slice(0, charIndex + 1);
+          charIndex++;
         } else {
           clearInterval(typeInterval);
+          typeInterval = undefined;
         }
       }, typeSpeed);
     }, startDelay);
 
-    return () => clearInterval(cursorInterval);
+    return () => {
+      clearInterval(cursorInterval);
+      clearTimeout(startTimeout);
+      if (typeInterval) clearInterval(typeInterval);
+    };
   });
 </script>
 
