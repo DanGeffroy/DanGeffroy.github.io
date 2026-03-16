@@ -1,18 +1,28 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead />
   </head>
 
-  <body class="bg-black">
+  <body
+    class="min-h-screen bg-dark font-sans text-zinc-300 antialiased selection:bg-accent/30 selection:text-white"
+  >
     <slot />
-    <style>
-      body {
-        background: url("/cartographer.png");
+    <style is:global>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
     </style>
   </body>
