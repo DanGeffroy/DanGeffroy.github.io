@@ -1,8 +1,9 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import "@fontsource/michroma/400.css";
-import "@fontsource/space-mono/400.css";
-import "@fontsource/space-mono/700.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
 ---
 
 <!doctype html>
@@ -12,7 +13,7 @@ import "@fontsource/space-mono/700.css";
   </head>
 
   <body
-    class="min-h-screen bg-dark font-mono text-zinc-300 antialiased selection:bg-accent/30 selection:text-white"
+    class="min-h-screen bg-dark font-sans text-zinc-300 antialiased selection:bg-accent/30 selection:text-white"
   >
     <!-- Scanline overlay -->
     <div class="scanline-overlay" aria-hidden="true"></div>
@@ -100,9 +101,9 @@ import "@fontsource/space-mono/700.css";
 
       /* === SECTION TITLE STYLE === */
       .section-title {
-        font-family: "Michroma", system-ui, sans-serif;
+        font-family: "Inter", system-ui, sans-serif;
         font-size: 0.65rem;
-        font-weight: 400;
+        font-weight: 600;
         letter-spacing: 0.2em;
         text-transform: uppercase;
         color: #ffffff;
@@ -114,8 +115,8 @@ import "@fontsource/space-mono/700.css";
 
       .section-title::before {
         content: "//";
-        color: rgba(255, 63, 0, 0.4);
-        font-family: "Space Mono", monospace;
+        color: rgba(255, 63, 0, 0.9);
+        font-family: "Inter", system-ui, sans-serif;
       }
 
       .section-title::after {
@@ -191,9 +192,9 @@ import "@fontsource/space-mono/700.css";
 
       /* === TECHNICAL REF LABELS === */
       .tech-ref {
-        font-family: "Space Mono", monospace;
+        font-family: "Inter", system-ui, sans-serif;
         font-size: 0.55rem;
-        color: rgba(255, 63, 0, 0.3);
+        color: #71717a;
         letter-spacing: 0.15em;
         text-transform: uppercase;
       }

@@ -18,9 +18,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["Michroma", "system-ui", "sans-serif"],
-        mono: ["Space Mono", "monospace"],
-        display: ["Michroma", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+        display: ["Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         none: "0",
