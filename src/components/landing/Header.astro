@@ -4,42 +4,32 @@ import TypeWriter from "./TypeWriter.svelte";
 ---
 
 <section class="fade-in pb-16">
-  <!-- System status bar -->
-  <div class="system-bar mb-6">
-    <span class="tech-ref">SYS.INIT // PORTFOLIO_v2.0</span>
-    <span class="tech-ref">STATUS: ONLINE</span>
-  </div>
-
-  <div class="flex items-center gap-5">
+  <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
     <div class="avatar-container shrink-0">
-      <div class="avatar-hud">
-        <img
-          class="h-16 w-16 md:h-20 md:w-20"
-          src="/avatar.jpg"
-          alt="Dan GEFFROY"
-        />
-        <span class="avatar-ref tech-ref">REF_0412</span>
-      </div>
+      <img
+        class="avatar-img"
+        src="/avatar.jpg"
+        alt="Dan GEFFROY"
+      />
     </div>
     <div>
-      <h1 class="font-display text-lg font-normal tracking-wider text-white md:text-xl uppercase">
+      <h1 class="text-3xl font-black uppercase tracking-tight text-ink md:text-4xl">
         Dan '<span class="accent-text"><TypeWriter client:load /></span>' GEFFROY
       </h1>
-      <p class="title-role font-mono text-xs text-zinc-500 tracking-wide mt-1">Software Engineer in Nantes / France</p>
+      <p class="mt-2 text-base font-bold uppercase tracking-wide text-ink/70">Software Engineer in Nantes / France</p>
       <a
-        class="mt-1 inline-block font-mono text-[10px] text-zinc-500 transition-colors hover:text-accent tracking-wider"
+        class="brutal-link mt-2 inline-block"
         href="https://dangeffroy.github.io"
-        >dangeffroy.github.io</a
+        >dangeffroy.github.io ↗</a
       >
     </div>
   </div>
 
-  <div class="about-card hud-frame mt-12">
-    <span class="tech-ref absolute top-2 right-3">DOSSIER_001</span>
-    <h2 class="section-title mb-4">
+  <div class="about-card brutal-card mt-10 bg-brutal-yellow/30 p-6">
+    <h2 class="section-title">
       About
     </h2>
-    <div class="space-y-3 font-mono text-xs leading-relaxed text-zinc-400">
+    <div class="space-y-3 text-sm leading-relaxed text-ink/80">
       <p>
         For the past {totalExp} years, I have developed many types of front-ends
         from educational platforms to insurance websites.
@@ -58,82 +48,40 @@ import TypeWriter from "./TypeWriter.svelte";
 
 <style>
   .accent-text {
-    color: #FF3F00;
-    font-weight: 700;
-  }
-
-  .system-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255, 63, 0, 0.15);
-    margin-bottom: 2rem;
+    color: #FF6B9D;
+    font-weight: 900;
   }
 
   .avatar-container {
     position: relative;
   }
 
-  .avatar-hud {
-    position: relative;
-    border: 1px solid rgba(255, 63, 0, 0.4);
-    padding: 3px;
-    clip-path: polygon(
-      8px 0%, 100% 0%, 100% calc(100% - 8px),
-      calc(100% - 8px) 100%, 0% 100%, 0% 8px
-    );
-  }
-
-  .avatar-hud img {
+  .avatar-img {
     display: block;
-    clip-path: polygon(
-      8px 0%, 100% 0%, 100% calc(100% - 8px),
-      calc(100% - 8px) 100%, 0% 100%, 0% 8px
-    );
+    width: 96px;
+    height: 96px;
+    border: 3px solid #1A1A2E;
+    box-shadow: 4px 4px 0 #1A1A2E;
   }
 
-  .avatar-ref {
-    position: absolute;
-    bottom: -16px;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-  }
-
-  .title-role {
-    animation: glitchIn 0.6s ease-out 0.3s both;
-  }
-
-  @keyframes glitchIn {
-    0% {
-      opacity: 0;
-      transform: translateX(-4px) skewX(-2deg);
-    }
-    20% {
-      opacity: 1;
-      transform: translateX(2px) skewX(1deg);
-    }
-    40% {
-      transform: translateX(-1px) skewX(0deg);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0) skewX(0);
+  @media (min-width: 768px) {
+    .avatar-img {
+      width: 120px;
+      height: 120px;
     }
   }
 
-  .about-card {
-    position: relative;
-    padding: 1.5rem;
-    background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    transition: border-color 0.1s ease, box-shadow 0.1s ease;
+  .brutal-link {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #1A1A2E;
+    text-decoration: none;
+    border-bottom: 3px solid #1A1A2E;
+    transition: color 0.15s ease, border-color 0.15s ease;
   }
 
-  .about-card:hover {
-    border-color: rgba(255, 63, 0, 0.4);
-    box-shadow: 0 0 20px rgba(255, 63, 0, 0.05);
+  .brutal-link:hover {
+    color: #FF6B9D;
+    border-color: #FF6B9D;
   }
 </style>

@@ -1,5 +1,7 @@
 ---
 import { details } from "../../data/details.json";
+
+const cardColors = ["#FF6B9D", "#4DEEEA", "#FFE74C", "#06D6A0", "#C77DFF", "#FF8C42"];
 ---
 
 <section class="fade-in-delay-1">
@@ -14,31 +16,30 @@ import { details } from "../../data/details.json";
           href={template.link}
           target="_blank"
           rel="noopener noreferrer"
-          class="experience-card group hud-frame"
+          class="experience-card brutal-card group"
           style={`animation-delay: ${0.1 + i * 0.08}s`}
         >
-          <span class="tech-ref absolute top-1.5 right-2">LOG_{String(i + 1).padStart(3, '0')}</span>
-          <div class="card-accent" />
+          <div class="card-accent" style={`background: ${cardColors[i % cardColors.length]};`} />
           <div class="card-body">
-            <span class="shrink-0 font-mono text-[10px] tabular-nums text-zinc-400 tracking-wider">
+            <span class="date-badge" style={`background: ${cardColors[i % cardColors.length]};`}>
               {template.date}
             </span>
-            <p class="mt-1 font-display text-xs font-normal tracking-wider text-zinc-200 uppercase group-hover:text-accent">
+            <p class="mt-2 text-sm font-black uppercase tracking-tight text-ink">
               {template.title}
-              <span class="ml-1 inline-block text-zinc-500 transition-transform duration-75 group-hover:translate-x-1 group-hover:text-accent">
+              <span class="ml-1 inline-block transition-transform duration-150 group-hover:translate-x-1">
                 ↗
               </span>
             </p>
-            <p class="mt-1.5 font-mono text-xs text-zinc-500">{template.desc}</p>
-            <p class="mt-1 font-mono text-[10px] text-zinc-500">
+            <p class="mt-1.5 text-xs text-ink/60">{template.desc}</p>
+            <p class="mt-2 text-xs font-bold text-ink/50">
               <svg
                 aria-label="Location:"
                 class="location-icon"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                width="10"
-                height="10"
+                width="12"
+                height="12"
               >
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
               </svg>
@@ -55,62 +56,40 @@ import { details } from "../../data/details.json";
   .card-grid {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
   .experience-card {
     position: relative;
-    display: block;
-    padding: 1rem 1.25rem;
-    background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    transition: border-color 0.05s ease, box-shadow 0.05s ease;
+    display: flex;
     text-decoration: none;
     overflow: hidden;
     animation: cardSlideIn 0.5s ease-out both;
   }
 
-  .experience-card:hover {
-    border-color: rgba(255, 63, 0, 0.5) !important;
-    box-shadow: 0 0 16px rgba(255, 63, 0, 0.08);
-  }
-
   .card-accent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2px;
-    height: 0;
-    background: #FF3F00;
-    transition: height 0.1s ease;
-  }
-
-  .experience-card:hover .card-accent {
-    height: 100%;
+    flex-shrink: 0;
+    width: 8px;
   }
 
   .card-body {
-    position: relative;
-    z-index: 1;
+    padding: 1rem 1.25rem;
+  }
+
+  .date-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #1A1A2E;
+    border: 2px solid #1A1A2E;
   }
 
   .location-icon {
     display: inline-block;
     vertical-align: middle;
-    margin-right: 2px;
+    margin-right: 3px;
     margin-top: -2px;
     color: currentColor;
-  }
-
-  @keyframes cardSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(16px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 </style>
