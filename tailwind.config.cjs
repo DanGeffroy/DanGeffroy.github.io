@@ -4,26 +4,33 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dark: {
-          DEFAULT: "#000000",
-          50: "#0a0a0a",
-          100: "#111111",
-          200: "#1a1a1a",
-          300: "#2a2a2a",
-        },
-        accent: {
-          DEFAULT: "#FF3F00",
-          light: "#FF6B3D",
-          dark: "#CC3200",
+        cream: "#FFF8E7",
+        ink: "#1A1A2E",
+        brutal: {
+          pink: "#FF6B9D",
+          yellow: "#FFE74C",
+          blue: "#4DEEEA",
+          green: "#06D6A0",
+          orange: "#FF8C42",
+          purple: "#C77DFF",
         },
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        mono: ["ui-monospace", "SFMono-Regular", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+        mono: [
+          "ui-monospace",
+          "SFMono-Regular",
+          "Consolas",
+          "Liberation Mono",
+          "Courier New",
+          "monospace",
+        ],
         display: ["Inter", "system-ui", "sans-serif"],
       },
-      borderRadius: {
-        none: "0",
+      boxShadow: {
+        brutal: "4px 4px 0 #1A1A2E",
+        "brutal-lg": "6px 6px 0 #1A1A2E",
+        "brutal-sm": "3px 3px 0 #1A1A2E",
       },
     },
   },

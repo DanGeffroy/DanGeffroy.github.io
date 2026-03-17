@@ -67,7 +67,7 @@
   }
   .cursor {
     font-weight: 300;
-    color: #FF3F00;
+    color: #FF6B9D;
     animation: none;
   }
   .visible {
