@@ -4,26 +4,42 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dark: {
-          DEFAULT: "#000000",
-          50: "#0a0a0a",
-          100: "#111111",
-          200: "#1a1a1a",
-          300: "#2a2a2a",
+        surface: {
+          DEFAULT: "#0a0a0a",
+          card: "#262626",
+          light: "#1a1a1a",
+        },
+        editorial: {
+          white: "#f5f5f5",
+          gray: "#a3a3a3",
+          muted: "#737373",
+          border: "#262626",
         },
         accent: {
-          DEFAULT: "#FF3F00",
-          light: "#FF6B3D",
-          dark: "#CC3200",
+          DEFAULT: "#3b82f6",
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        mono: ["ui-monospace", "SFMono-Regular", "Consolas", "Liberation Mono", "Courier New", "monospace"],
-        display: ["Inter", "system-ui", "sans-serif"],
-      },
-      borderRadius: {
-        none: "0",
+        sans: [
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+        display: [
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
       },
     },
   },

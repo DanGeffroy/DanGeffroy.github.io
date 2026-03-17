@@ -15,12 +15,16 @@ const icons: Record<string, string> = {
 };
 ---
 
-<section class="fade-in-delay-2">
-  <h2 class="section-title">
-    Contact
-  </h2>
+<section id="contact" class="fade-in-delay-3 py-16 md:py-24">
+  <!-- Section label -->
+  <div class="flex items-center gap-4 mb-10">
+    <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f5f5]">
+      Contact
+    </h2>
+    <div class="flex-1 h-px bg-[#262626]"></div>
+  </div>
 
-  <div class="contact-grid">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
     {
       contact.map((template, i) => (
         <a
@@ -28,10 +32,10 @@ const icons: Record<string, string> = {
           title={template.type}
           target="_blank"
           rel="noopener noreferrer"
-          class="contact-card group"
+          class="group flex items-center gap-4 rounded-2xl border border-[#262626] bg-gradient-to-br from-zinc-800/30 to-zinc-900/30 p-4 transition-all duration-300 hover:border-[#525252] hover:bg-zinc-800/40 no-underline"
           style={`animation-delay: ${0.3 + i * 0.06}s`}
         >
-          <div class="contact-icon" aria-hidden="true">
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0a0a0a]/60 text-[#a3a3a3] group-hover:text-accent transition-colors duration-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -43,12 +47,12 @@ const icons: Record<string, string> = {
             </svg>
           </div>
           <div class="min-w-0">
-            <span class="font-display text-[10px] font-normal tracking-widest text-zinc-500 uppercase group-hover:text-accent transition-colors duration-75">
+            <span class="block text-xs font-semibold uppercase tracking-wider text-[#737373] group-hover:text-accent transition-colors duration-300">
               {template.type}
             </span>
-            <span class="mt-0.5 block min-w-0 truncate font-mono text-xs text-zinc-400 group-hover:text-white">
+            <span class="mt-0.5 block min-w-0 truncate text-sm text-[#a3a3a3] group-hover:text-[#f5f5f5] transition-colors duration-300">
               {template.title}
-              <span class="ml-1 inline-block text-zinc-500 transition-transform duration-75 group-hover:translate-x-1 group-hover:text-accent">
+              <span class="ml-1 inline-block text-[#737373] transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent">
                 ↗
               </span>
             </span>
@@ -58,66 +62,10 @@ const icons: Record<string, string> = {
     }
   </div>
 
-  <!-- Footer system bar -->
-  <div class="mt-12 pt-4 border-t border-zinc-900 flex justify-between items-center">
-    <span class="tech-ref">SYS.END // ALL_MODULES_LOADED</span>
-    <span class="tech-ref">© {new Date().getFullYear()}</span>
+  <!-- Footer -->
+  <div class="mt-16 pt-6 border-t border-[#262626] flex justify-between items-center">
+    <span class="text-xs text-[#737373]">Dan GEFFROY — Portfolio</span>
+    <span class="text-xs text-[#737373]">© {new Date().getFullYear()}</span>
   </div>
 </section>
-
-<style>
-  .contact-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .contact-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    border: 1px solid rgba(255, 63, 0, 0.08);
-    padding: 0.75rem 1rem;
-    background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    transition: border-color 0.05s ease, box-shadow 0.05s ease;
-    text-decoration: none;
-    animation: cardSlideIn 0.5s ease-out both;
-  }
-
-  .contact-card:hover {
-    border-color: rgba(255, 63, 0, 0.4);
-    box-shadow: 0 0 12px rgba(255, 63, 0, 0.06);
-  }
-
-  .contact-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(255, 63, 0, 0.15);
-    color: rgba(255, 63, 0, 0.9);
-    transition: all 0.05s ease;
-  }
-
-  .contact-card:hover .contact-icon {
-    border-color: rgba(255, 63, 0, 0.5);
-    color: #FF3F00;
-    background: rgba(255, 63, 0, 0.05);
-  }
-
-  @keyframes cardSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
 

@@ -3,137 +3,63 @@ import { totalExp } from "../../data/details.json";
 import TypeWriter from "./TypeWriter.svelte";
 ---
 
-<section class="fade-in pb-16">
-  <!-- System status bar -->
-  <div class="system-bar mb-6">
-    <span class="tech-ref">SYS.INIT // PORTFOLIO_v2.0</span>
-    <span class="tech-ref">STATUS: ONLINE</span>
-  </div>
-
-  <div class="flex items-center gap-5">
-    <div class="avatar-container shrink-0">
-      <div class="avatar-hud">
-        <img
-          class="h-16 w-16 md:h-20 md:w-20"
-          src="/avatar.jpg"
-          alt="Dan GEFFROY"
-        />
-        <span class="avatar-ref tech-ref">REF_0412</span>
+<section class="fade-in min-h-[85vh] flex flex-col justify-center pb-16 md:pb-24">
+  <!-- Nav bar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#0a0a0a]/80 border-b border-white/[0.06]">
+    <div class="mx-auto max-w-7xl px-6 md:px-12 py-4 flex items-center justify-between">
+      <span class="text-sm font-semibold tracking-tight text-[#f5f5f5]">DG.</span>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#experience" class="text-xs text-[#a3a3a3] hover:text-accent transition-colors duration-300">Experience</a>
+        <a href="#projects" class="text-xs text-[#a3a3a3] hover:text-accent transition-colors duration-300">Projects</a>
+        <a href="#skills" class="text-xs text-[#a3a3a3] hover:text-accent transition-colors duration-300">Skills</a>
+        <a href="#contact" class="text-xs text-[#a3a3a3] hover:text-accent transition-colors duration-300">Contact</a>
       </div>
-    </div>
-    <div>
-      <h1 class="font-display text-lg font-normal tracking-wider text-white md:text-xl uppercase">
-        Dan '<span class="accent-text"><TypeWriter client:load /></span>' GEFFROY
-      </h1>
-      <p class="title-role font-mono text-xs text-zinc-500 tracking-wide mt-1">Software Engineer in Nantes / France</p>
       <a
-        class="mt-1 inline-block font-mono text-[10px] text-zinc-500 transition-colors hover:text-accent tracking-wider"
-        href="https://dangeffroy.github.io"
-        >dangeffroy.github.io</a
+        href="#contact"
+        class="border border-white/20 px-4 py-1.5 text-xs text-[#f5f5f5] hover:border-accent hover:text-accent transition-all duration-300"
       >
+        Get in touch
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero content -->
+  <div class="pt-24 md:pt-32">
+    <p class="text-sm md:text-base font-light text-[#a3a3a3] mb-4 md:mb-6 tracking-wide fade-in">
+      Software Engineer — Nantes, France
+    </p>
+
+    <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] text-[#f5f5f5] max-w-[70%] fade-in-delay-1">
+      Dan<br />
+      <span class="text-[#a3a3a3]">GEFFROY</span>
+    </h1>
+
+    <p class="mt-6 md:mt-8 max-w-md text-sm md:text-base font-light leading-relaxed text-[#737373] fade-in-delay-2">
+      For the past {totalExp} years, crafting digital experiences — from
+      insurance platforms to creative front-ends. Specializing in modern
+      web technologies with a passion for clean, performant code.
+    </p>
+
+    <div class="mt-8 md:mt-10 flex flex-wrap items-center gap-4 fade-in-delay-2">
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 border border-[#f5f5f5]/30 px-6 py-3 text-sm text-[#f5f5f5] hover:border-accent hover:text-accent transition-all duration-300"
+      >
+        Contact me
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+      <span class="text-xs text-[#737373] font-light">
+        aka '<TypeWriter client:load />'
+      </span>
     </div>
   </div>
 
-  <div class="about-card hud-frame mt-12">
-    <span class="tech-ref absolute top-2 right-3">DOSSIER_001</span>
-    <h2 class="section-title mb-4">
-      About
-    </h2>
-    <div class="space-y-3 font-mono text-xs leading-relaxed text-zinc-400">
-      <p>
-        For the past {totalExp} years, I have developed many types of front-ends
-        from educational platforms to insurance websites.
-      </p>
-      <p>
-        I Specialize in front-end development, but I also have experience with
-        back-end development, DevOps and cloud infrastructure.
-      </p>
-      <p>
-        I am skilled in leading software projects and have the ability to manage,
-        mentor, and hire software engineers.
-      </p>
-    </div>
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 fade-in-delay-3">
+    <span class="text-[10px] text-[#737373] uppercase tracking-[0.2em]">Scroll</span>
+    <div class="w-px h-8 bg-gradient-to-b from-[#737373] to-transparent"></div>
   </div>
 </section>
-
-<style>
-  .accent-text {
-    color: #FF3F00;
-    font-weight: 700;
-  }
-
-  .system-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255, 63, 0, 0.15);
-    margin-bottom: 2rem;
-  }
-
-  .avatar-container {
-    position: relative;
-  }
-
-  .avatar-hud {
-    position: relative;
-    border: 1px solid rgba(255, 63, 0, 0.4);
-    padding: 3px;
-    clip-path: polygon(
-      8px 0%, 100% 0%, 100% calc(100% - 8px),
-      calc(100% - 8px) 100%, 0% 100%, 0% 8px
-    );
-  }
-
-  .avatar-hud img {
-    display: block;
-    clip-path: polygon(
-      8px 0%, 100% 0%, 100% calc(100% - 8px),
-      calc(100% - 8px) 100%, 0% 100%, 0% 8px
-    );
-  }
-
-  .avatar-ref {
-    position: absolute;
-    bottom: -16px;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-  }
-
-  .title-role {
-    animation: glitchIn 0.6s ease-out 0.3s both;
-  }
-
-  @keyframes glitchIn {
-    0% {
-      opacity: 0;
-      transform: translateX(-4px) skewX(-2deg);
-    }
-    20% {
-      opacity: 1;
-      transform: translateX(2px) skewX(1deg);
-    }
-    40% {
-      transform: translateX(-1px) skewX(0deg);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0) skewX(0);
-    }
-  }
-
-  .about-card {
-    position: relative;
-    padding: 1.5rem;
-    background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    transition: border-color 0.1s ease, box-shadow 0.1s ease;
-  }
-
-  .about-card:hover {
-    border-color: rgba(255, 63, 0, 0.4);
-    box-shadow: 0 0 20px rgba(255, 63, 0, 0.05);
-  }
-</style>

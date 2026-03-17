@@ -1,0 +1,111 @@
+---
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  span: string;
+  icon: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "Portfolio Website",
+    description: "Personal portfolio built with Astro, Svelte and Tailwind CSS. High-end editorial design with smooth animations.",
+    tags: ["Astro", "Svelte", "Tailwind"],
+    span: "md:col-span-2 md:row-span-2",
+    icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5",
+  },
+  {
+    title: "Insurance Platform",
+    description: "Enterprise-grade insurance client portal with Angular and Spring Boot.",
+    tags: ["Angular", "Java", "Spring"],
+    span: "md:col-span-1 md:row-span-1",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+  },
+  {
+    title: "DevOps Pipeline",
+    description: "CI/CD automation with GitHub Actions and cloud deployment.",
+    tags: ["GitHub Actions", "Docker", "AWS"],
+    span: "md:col-span-1 md:row-span-1",
+    icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+  },
+  {
+    title: "Banking Migration",
+    description: "Large-scale data migration tooling for HSBC banking systems.",
+    tags: ["SQL", "Java", "ETL"],
+    span: "md:col-span-1 md:row-span-1",
+    icon: "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4",
+  },
+  {
+    title: "Microservices Architecture",
+    description: "Distributed service mesh for insurance claim processing with event-driven design.",
+    tags: ["Java", "Spring Boot", "Kafka"],
+    span: "md:col-span-2 md:row-span-1",
+    icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
+  },
+];
+---
+
+<section id="projects" class="fade-in-delay-2 py-16 md:py-24">
+  <!-- Section label -->
+  <div class="flex items-center gap-4 mb-10">
+    <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f5f5]">
+      Projects
+    </h2>
+    <div class="flex-1 h-px bg-[#262626]"></div>
+  </div>
+
+  <!-- Bento Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {
+      projects.map((project, i) => (
+        <div
+          class:list={[
+            "group relative overflow-hidden rounded-2xl bg-gradient-to-br from-zinc-800 to-zinc-900 border border-[#262626] p-6 transition-all duration-300 hover:border-[#525252] hover:shadow-lg",
+            project.span,
+          ]}
+          style={`animation-delay: ${0.1 + i * 0.08}s`}
+        >
+          {/* Icon */}
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#0a0a0a]/60 text-[#a3a3a3] group-hover:text-accent transition-colors duration-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d={project.icon} />
+            </svg>
+          </div>
+
+          {/* Title */}
+          <h3 class="text-base font-bold text-[#f5f5f5] mb-2 group-hover:text-accent transition-colors duration-300">
+            {project.title}
+          </h3>
+
+          {/* Description */}
+          <p class="text-sm font-light text-[#a3a3a3] leading-relaxed mb-4">
+            {project.description}
+          </p>
+
+          {/* Tags */}
+          <div class="flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span class="inline-flex items-center px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-[#a3a3a3] bg-[#0a0a0a]/40 rounded-full border border-white/[0.06]">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Decorative corner gradient */}
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-white/[0.02] to-transparent rounded-bl-full pointer-events-none" />
+        </div>
+      ))
+    }
+  </div>
+</section>
