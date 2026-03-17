@@ -3,8 +3,7 @@ import { details } from "../../data/details.json";
 ---
 
 <section class="fade-in-delay-1">
-  <h2 class="flex items-center gap-2 mb-6 text-xs font-bold tracking-[0.05em] uppercase bg-gradient-to-br from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
-    <span class="inline-block w-6 h-0.5 bg-gradient-to-r from-violet-500 to-purple-500 rounded-[2px] shrink-0" aria-hidden="true"></span>
+  <h2 class="section-title">
     Work experience
   </h2>
 
@@ -15,30 +14,31 @@ import { details } from "../../data/details.json";
           href={template.link}
           target="_blank"
           rel="noopener noreferrer"
-          class="experience-card group"
+          class="experience-card group hud-frame"
           style={`animation-delay: ${0.1 + i * 0.08}s`}
         >
+          <span class="tech-ref absolute top-1.5 right-2">LOG_{String(i + 1).padStart(3, '0')}</span>
           <div class="card-accent" />
           <div class="card-body">
-            <span class="shrink-0 text-xs tabular-nums text-zinc-600">
+            <span class="shrink-0 font-mono text-[10px] tabular-nums text-zinc-600 tracking-wider">
               {template.date}
             </span>
-            <p class="mt-1 text-sm font-medium text-zinc-200 group-hover:text-white">
+            <p class="mt-1 font-display text-xs font-normal tracking-wider text-zinc-200 uppercase group-hover:text-accent">
               {template.title}
-              <span class="ml-1 inline-block text-zinc-600 transition-transform group-hover:translate-x-1">
+              <span class="ml-1 inline-block text-zinc-600 transition-transform duration-75 group-hover:translate-x-1 group-hover:text-accent">
                 ↗
               </span>
             </p>
-            <p class="mt-1.5 text-sm text-zinc-500">{template.desc}</p>
-            <p class="mt-1 text-xs text-zinc-600">
+            <p class="mt-1.5 font-mono text-xs text-zinc-500">{template.desc}</p>
+            <p class="mt-1 font-mono text-[10px] text-zinc-600">
               <svg
                 aria-label="Location:"
                 class="location-icon"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                width="12"
-                height="12"
+                width="10"
+                height="10"
               >
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
               </svg>
@@ -61,34 +61,29 @@ import { details } from "../../data/details.json";
   .experience-card {
     position: relative;
     display: block;
-    border: 1px solid rgba(139, 92, 246, 0.08);
-    border-radius: 12px;
     padding: 1rem 1.25rem;
-    background: rgba(24, 24, 27, 0.25);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: all 0.3s ease;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: border-color 0.05s ease, box-shadow 0.05s ease;
     text-decoration: none;
     overflow: hidden;
     animation: cardSlideIn 0.5s ease-out both;
   }
 
   .experience-card:hover {
-    border-color: rgba(139, 92, 246, 0.3);
-    background: rgba(30, 30, 34, 0.4);
-    box-shadow: 0 4px 24px rgba(139, 92, 246, 0.08);
-    transform: translateY(-2px);
+    border-color: rgba(255, 63, 0, 0.5) !important;
+    box-shadow: 0 0 16px rgba(255, 63, 0, 0.08);
   }
 
   .card-accent {
     position: absolute;
     top: 0;
     left: 0;
-    width: 3px;
+    width: 2px;
     height: 0;
-    background: linear-gradient(180deg, #8b5cf6, #a855f7);
-    border-radius: 3px;
-    transition: height 0.3s ease;
+    background: #FF3F00;
+    transition: height 0.1s ease;
   }
 
   .experience-card:hover .card-accent {

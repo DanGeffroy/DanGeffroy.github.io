@@ -5,20 +5,25 @@ module.exports = {
     extend: {
       colors: {
         dark: {
-          DEFAULT: "#0a0a0b",
-          50: "#18181b",
-          100: "#1e1e22",
-          200: "#27272a",
-          300: "#3f3f46",
+          DEFAULT: "#000000",
+          50: "#0a0a0a",
+          100: "#111111",
+          200: "#1a1a1a",
+          300: "#2a2a2a",
         },
         accent: {
-          DEFAULT: "#8b5cf6",
-          light: "#a78bfa",
-          dark: "#7c3aed",
+          DEFAULT: "#FF3F00",
+          light: "#FF6B3D",
+          dark: "#CC3200",
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Michroma", "system-ui", "sans-serif"],
+        mono: ["Space Mono", "monospace"],
+        display: ["Michroma", "system-ui", "sans-serif"],
+      },
+      borderRadius: {
+        none: "0",
       },
     },
   },
