@@ -19,8 +19,8 @@
     let animationId: number;
     let particles: Particle[] = [];
 
-    const PARTICLE_COUNT = 60;
-    const COLORS = ["#8b5cf6", "#a78bfa", "#7c3aed", "#a855f7", "#c084fc"];
+    const PARTICLE_COUNT = 40;
+    const COLORS = ["#FF3F00", "#FF6B3D", "#CC3200", "#FF5722", "#FF8A65"];
 
     function resize() {
       canvas.width = window.innerWidth;
@@ -34,13 +34,33 @@
       return {
         x: Math.random() * canvas.width,
         y: Math.random() * -canvas.height,
-        size: Math.random() * 2 + 0.5,
-        speedY: Math.random() * 1.5 + 0.5,
-        speedX: (Math.random() - 0.5) * 0.4,
-        opacity: Math.random() * 0.6 + 0.2,
-        tailLength: Math.random() * 20 + 10,
+        size: Math.random() * 1.5 + 0.3,
+        speedY: Math.random() * 1.2 + 0.3,
+        speedX: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.3 + 0.05,
+        tailLength: Math.random() * 30 + 15,
         colorIndex: Math.floor(Math.random() * COLORS.length),
       };
+    }
+
+    function drawGrid() {
+      const gridSize = 80;
+      ctx.strokeStyle = "rgba(255, 63, 0, 0.02)";
+      ctx.lineWidth = 0.5;
+
+      for (let x = 0; x < canvas.width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+
+      for (let y = 0; y < canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
     }
 
     function init() {
@@ -55,6 +75,8 @@
 
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      drawGrid();
 
       for (const p of particles) {
         const color = COLORS[p.colorIndex];
@@ -80,7 +102,7 @@
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.globalAlpha = p.opacity * 0.3;
+        ctx.globalAlpha = p.opacity * 0.2;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
         ctx.fillStyle = color;
@@ -98,9 +120,9 @@
         if (p.y > canvas.height + p.tailLength) {
           p.y = -p.tailLength;
           p.x = Math.random() * canvas.width;
-          p.opacity = Math.random() * 0.6 + 0.2;
-          p.speedY = Math.random() * 1.5 + 0.5;
-          p.speedX = (Math.random() - 0.5) * 0.4;
+          p.opacity = Math.random() * 0.3 + 0.05;
+          p.speedY = Math.random() * 1.2 + 0.3;
+          p.speedX = (Math.random() - 0.5) * 0.3;
           p.colorIndex = Math.floor(Math.random() * COLORS.length);
         }
       }
