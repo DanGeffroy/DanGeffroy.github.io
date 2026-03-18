@@ -1,0 +1,182 @@
+---
+---
+
+<div class="coffee-wrapper fade-in">
+  <svg
+    class="coffee-svg"
+    viewBox="0 0 200 180"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-label="Animated coffee cup"
+    role="img"
+  >
+    <!-- Steam lines -->
+    <g class="steam">
+      <path
+        class="steam-line steam-1"
+        d="M70 62 Q65 42, 70 22"
+        fill="none"
+        stroke="#1A1A2E"
+        stroke-width="3"
+        stroke-linecap="round"
+      />
+      <path
+        class="steam-line steam-2"
+        d="M90 58 Q95 38, 90 18"
+        fill="none"
+        stroke="#1A1A2E"
+        stroke-width="3"
+        stroke-linecap="round"
+      />
+      <path
+        class="steam-line steam-3"
+        d="M110 62 Q105 42, 110 22"
+        fill="none"
+        stroke="#1A1A2E"
+        stroke-width="3"
+        stroke-linecap="round"
+      />
+    </g>
+
+    <!-- Cup shadow -->
+    <rect
+      x="49"
+      y="72"
+      width="110"
+      height="80"
+      rx="6"
+      fill="#1A1A2E"
+    />
+
+    <!-- Cup body -->
+    <rect
+      x="45"
+      y="68"
+      width="110"
+      height="80"
+      rx="6"
+      fill="#FFE74C"
+      stroke="#1A1A2E"
+      stroke-width="3"
+    />
+
+    <!-- Coffee liquid -->
+    <rect
+      x="48"
+      y="78"
+      width="104"
+      height="40"
+      fill="#FF8C42"
+      opacity="0.6"
+    />
+
+    <!-- Cup bottom curve -->
+    <ellipse
+      cx="100"
+      cy="148"
+      rx="55"
+      ry="8"
+      fill="#FFE74C"
+      stroke="#1A1A2E"
+      stroke-width="3"
+    />
+
+    <!-- Handle shadow -->
+    <path
+      d="M159 88 Q185 88, 185 108 Q185 128, 159 128"
+      fill="none"
+      stroke="#1A1A2E"
+      stroke-width="14"
+      stroke-linecap="round"
+    />
+
+    <!-- Handle -->
+    <path
+      d="M155 84 Q181 84, 181 104 Q181 124, 155 124"
+      fill="none"
+      stroke="#FF6B9D"
+      stroke-width="6"
+      stroke-linecap="round"
+    />
+    <path
+      d="M155 84 Q181 84, 181 104 Q181 124, 155 124"
+      fill="none"
+      stroke="#1A1A2E"
+      stroke-width="3"
+    />
+
+    <!-- Saucer shadow -->
+    <ellipse cx="104" cy="160" rx="70" ry="10" fill="#1A1A2E" />
+
+    <!-- Saucer -->
+    <ellipse
+      cx="100"
+      cy="156"
+      rx="70"
+      ry="10"
+      fill="#4DEEEA"
+      stroke="#1A1A2E"
+      stroke-width="3"
+    />
+
+    <!-- Decorative dots on cup -->
+    <circle cx="65" cy="100" r="4" fill="#FF6B9D" stroke="#1A1A2E" stroke-width="2" />
+    <circle cx="85" cy="100" r="4" fill="#4DEEEA" stroke="#1A1A2E" stroke-width="2" />
+    <circle cx="105" cy="100" r="4" fill="#06D6A0" stroke="#1A1A2E" stroke-width="2" />
+    <circle cx="125" cy="100" r="4" fill="#C77DFF" stroke="#1A1A2E" stroke-width="2" />
+  </svg>
+</div>
+
+<style>
+  .coffee-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0 0.5rem;
+  }
+
+  .coffee-svg {
+    width: 120px;
+    height: auto;
+  }
+
+  @media (min-width: 640px) {
+    .coffee-svg {
+      width: 140px;
+    }
+  }
+
+  /* Steam animation */
+  .steam-line {
+    opacity: 0;
+    animation: rise 2.4s ease-in-out infinite;
+  }
+
+  .steam-1 {
+    animation-delay: 0s;
+  }
+
+  .steam-2 {
+    animation-delay: 0.8s;
+  }
+
+  .steam-3 {
+    animation-delay: 1.6s;
+  }
+
+  @keyframes rise {
+    0% {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    20% {
+      opacity: 0.7;
+    }
+    60% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+</style>
