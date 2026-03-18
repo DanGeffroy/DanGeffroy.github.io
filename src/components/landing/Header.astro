@@ -4,6 +4,30 @@ import TypeWriter from "./TypeWriter.svelte";
 ---
 
 <section class="fade-in pb-16">
+  <div class="hero-illustration" aria-hidden="true">
+    <svg
+      class="computer-svg"
+      viewBox="0 0 260 170"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+    >
+      <rect x="45" y="10" width="170" height="95" rx="6" class="monitor-frame"></rect>
+      <rect x="58" y="22" width="144" height="67" class="monitor-screen"></rect>
+      <rect x="68" y="34" width="86" height="8" class="code-line code-line-1"></rect>
+      <rect x="68" y="49" width="112" height="8" class="code-line code-line-2"></rect>
+      <rect x="68" y="64" width="72" height="8" class="code-line code-line-3"></rect>
+      <rect x="116" y="105" width="28" height="12" class="stand"></rect>
+      <rect x="92" y="117" width="76" height="8" class="stand"></rect>
+      <rect x="56" y="130" width="148" height="26" rx="4" class="keyboard"></rect>
+      <rect x="68" y="138" width="14" height="8" class="key key-1"></rect>
+      <rect x="87" y="138" width="14" height="8" class="key key-2"></rect>
+      <rect x="106" y="138" width="14" height="8" class="key"></rect>
+      <rect x="125" y="138" width="14" height="8" class="key key-3"></rect>
+      <rect x="144" y="138" width="14" height="8" class="key"></rect>
+      <rect x="163" y="138" width="14" height="8" class="key key-4"></rect>
+      <rect x="96" y="149" width="68" height="5" class="spacebar"></rect>
+    </svg>
+  </div>
   <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
     <div class="avatar-container shrink-0">
       <img
@@ -47,6 +71,76 @@ import TypeWriter from "./TypeWriter.svelte";
 </section>
 
 <style>
+  .hero-illustration {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .computer-svg {
+    width: 100%;
+    max-width: 320px;
+    overflow: visible;
+    animation: floating 2.4s steps(2, end) infinite;
+  }
+
+  .monitor-frame,
+  .keyboard,
+  .stand {
+    fill: #FFE74C;
+    stroke: #1A1A2E;
+    stroke-width: 3px;
+  }
+
+  .monitor-screen {
+    fill: #FFF8E7;
+    stroke: #1A1A2E;
+    stroke-width: 3px;
+  }
+
+  .code-line {
+    fill: #4DEEEA;
+    animation: typing 1.6s steps(2, end) infinite;
+    transform-origin: left center;
+  }
+
+  .code-line-2 {
+    fill: #FF6B9D;
+    animation-delay: 0.25s;
+  }
+
+  .code-line-3 {
+    fill: #06D6A0;
+    animation-delay: 0.5s;
+  }
+
+  .key,
+  .spacebar {
+    fill: #FFFFFF;
+    stroke: #1A1A2E;
+    stroke-width: 2px;
+  }
+
+  .key-1,
+  .key-2,
+  .key-3,
+  .key-4 {
+    animation: keyPress 1.4s steps(2, end) infinite;
+    transform-origin: center;
+  }
+
+  .key-2 {
+    animation-delay: 0.2s;
+  }
+
+  .key-3 {
+    animation-delay: 0.4s;
+  }
+
+  .key-4 {
+    animation-delay: 0.6s;
+  }
+
   .accent-text {
     color: #FF6B9D;
     font-weight: 900;
@@ -83,5 +177,35 @@ import TypeWriter from "./TypeWriter.svelte";
   .brutal-link:hover {
     color: #FF6B9D;
     border-color: #FF6B9D;
+  }
+
+  @keyframes typing {
+    0%,
+    100% {
+      transform: scaleX(0.85);
+    }
+    50% {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes keyPress {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(1px);
+    }
+  }
+
+  @keyframes floating {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
   }
 </style>
