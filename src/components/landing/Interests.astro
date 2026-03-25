@@ -21,6 +21,7 @@ const interests = [
       <div
         class="interest-tag brutal-card"
         style={`animation-delay: ${0.1 + i * 0.05}s`}
+        aria-label={interest.label}
       >
         <span class="interest-emoji" aria-hidden="true">{interest.emoji}</span>
         <span class="interest-label">{interest.label}</span>
