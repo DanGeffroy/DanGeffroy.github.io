@@ -1,31 +1,39 @@
 ---
 import { totalExp } from "../../data/details.json";
 import TypeWriter from "./TypeWriter.svelte";
+
+const interests = [
+  { emoji: "🐱", label: "Cats" },
+  { emoji: "🏋️", label: "Lifting" },
+  { emoji: "💻", label: "Coding" },
+  { emoji: "🎮", label: "Gaming" },
+  { emoji: "🍕", label: "Food" },
+];
 ---
 
 <section class="fade-in pb-16">
   <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
-    <div class="avatar-container shrink-0">
+    <div class="relative shrink-0">
       <img
-        class="avatar-img"
+        class="block h-24 w-24 border-[3px] border-ink shadow-brutal md:h-[120px] md:w-[120px]"
         src="/avatar.jpg"
         alt="Dan GEFFROY"
       />
     </div>
     <div>
       <h1 class="text-3xl font-black uppercase tracking-tight text-ink md:text-4xl">
-        Dan '<span class="accent-text"><TypeWriter client:load /></span>' GEFFROY
+        Dan '<span class="font-black text-brutal-pink"><TypeWriter client:load /></span>' GEFFROY
       </h1>
       <p class="mt-2 text-base font-bold uppercase tracking-wide text-ink/70">Software Engineer in Nantes / France</p>
       <a
-        class="brutal-link mt-2 inline-block"
+        class="mt-2 inline-block border-b-[3px] border-ink text-xs font-bold text-ink no-underline transition-colors duration-150 hover:border-brutal-pink hover:text-brutal-pink"
         href="https://dangeffroy.github.io"
         >dangeffroy.github.io ↗</a
       >
     </div>
   </div>
 
-  <div class="about-card brutal-card mt-10 bg-brutal-yellow/30 p-6">
+  <div class="brutal-card mt-10 bg-brutal-yellow/30 p-6">
     <h2 class="section-title">
       About
     </h2>
@@ -42,46 +50,14 @@ import TypeWriter from "./TypeWriter.svelte";
         I am skilled in leading software projects and have the ability to manage,
         mentor, and hire software engineers.
       </p>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {interests.map((interest) => (
+          <span class="inline-flex items-center gap-1.5 border-2 border-ink bg-cream px-3 py-1 text-xs font-bold text-ink shadow-[2px_2px_0_#1A1A2E]">
+            <span>{interest.emoji}</span>
+            <span>{interest.label}</span>
+          </span>
+        ))}
+      </div>
     </div>
   </div>
 </section>
-
-<style>
-  .accent-text {
-    color: #FF6B9D;
-    font-weight: 900;
-  }
-
-  .avatar-container {
-    position: relative;
-  }
-
-  .avatar-img {
-    display: block;
-    width: 96px;
-    height: 96px;
-    border: 3px solid #1A1A2E;
-    box-shadow: 4px 4px 0 #1A1A2E;
-  }
-
-  @media (min-width: 768px) {
-    .avatar-img {
-      width: 120px;
-      height: 120px;
-    }
-  }
-
-  .brutal-link {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #1A1A2E;
-    text-decoration: none;
-    border-bottom: 3px solid #1A1A2E;
-    transition: color 0.15s ease, border-color 0.15s ease;
-  }
-
-  .brutal-link:hover {
-    color: #FF6B9D;
-    border-color: #FF6B9D;
-  }
-</style>

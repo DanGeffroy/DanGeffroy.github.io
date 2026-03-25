@@ -22,7 +22,7 @@ const contactColors = ["#1A1A2E", "#FF6B9D", "#4DEEEA", "#FFE74C", "#06D6A0"];
     Contact
   </h2>
 
-  <div class="contact-grid">
+  <div class="flex flex-col gap-3">
     {
       contact.map((template, i) => (
         <a
@@ -30,10 +30,10 @@ const contactColors = ["#1A1A2E", "#FF6B9D", "#4DEEEA", "#FFE74C", "#06D6A0"];
           title={template.type}
           target="_blank"
           rel="noopener noreferrer"
-          class="contact-card brutal-card group"
-          style={`animation-delay: ${0.3 + i * 0.06}s; --icon-bg: ${contactColors[i % contactColors.length]};`}
+          class="brutal-card group flex items-center gap-4 px-4 py-3 no-underline"
+          style={`animation: cardSlideIn 0.5s ease-out both; animation-delay: ${0.3 + i * 0.06}s;`}
         >
-          <div class="contact-icon" style={`background: ${contactColors[i % contactColors.length]}; color: ${i === 0 ? '#fff' : '#1A1A2E'};`} aria-hidden="true">
+          <div class="flex h-11 w-11 shrink-0 items-center justify-center border-[3px] border-ink" style={`background: ${contactColors[i % contactColors.length]}; color: ${i === 0 ? '#fff' : '#1A1A2E'};`} aria-hidden="true">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -52,7 +52,7 @@ const contactColors = ["#1A1A2E", "#FF6B9D", "#4DEEEA", "#FFE74C", "#06D6A0"];
               {template.title}
             </span>
           </div>
-          <span class="arrow text-ink font-black text-lg transition-transform duration-150 group-hover:translate-x-1">
+          <span class="text-lg font-black text-ink transition-transform duration-150 group-hover:translate-x-1">
             ↗
           </span>
         </a>
@@ -61,44 +61,10 @@ const contactColors = ["#1A1A2E", "#FF6B9D", "#4DEEEA", "#FFE74C", "#06D6A0"];
   </div>
 
   <!-- Footer -->
-  <div class="footer-bar mt-12">
+  <div class="mt-12 flex items-center justify-between border-t-[3px] border-ink pt-6">
     <span class="text-xs font-bold uppercase tracking-wider text-ink/40">Dan GEFFROY · Portfolio</span>
     <span class="text-xs font-bold text-ink/40">© {new Date().getFullYear()}</span>
   </div>
 </section>
 
-<style>
-  .contact-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .contact-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 1rem;
-    text-decoration: none;
-    animation: cardSlideIn 0.5s ease-out both;
-  }
-
-  .contact-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    border: 3px solid #1A1A2E;
-  }
-
-  .footer-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1.5rem;
-    border-top: 3px solid #1A1A2E;
-  }
-</style>
 

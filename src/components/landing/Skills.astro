@@ -43,11 +43,11 @@ const categories: SkillCategory[] = [
     {
       categories.map((category, i) => (
         <div
-          class="skill-card brutal-card"
-          style={`animation-delay: ${0.1 + i * 0.08}s; --card-color: ${category.color};`}
+          class="brutal-card overflow-hidden"
+          style={`animation: cardSlideIn 0.5s ease-out both; animation-delay: ${0.1 + i * 0.08}s;`}
         >
-          <div class="card-header" style={`background: ${category.color};`}>
-            <div class="skill-icon" aria-hidden="true">
+          <div class="flex items-center gap-2 border-b-[3px] border-ink px-4 py-3" style={`background: ${category.color};`}>
+            <div class="flex shrink-0 items-center justify-center text-ink" aria-hidden="true">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -60,10 +60,10 @@ const categories: SkillCategory[] = [
             </div>
             <h3 class="text-sm font-black uppercase tracking-wide text-ink">{category.title}</h3>
           </div>
-          <div class="card-body">
+          <div class="p-4">
             <div class="flex flex-wrap gap-2">
               {category.skills.map((skill) => (
-                <span class="skill-tag">{skill}</span>
+                <span class="inline-flex items-center whitespace-nowrap border-2 border-ink bg-cream px-3 py-1 text-xs font-bold text-ink shadow-[2px_2px_0_#1A1A2E] transition-all duration-100 hover:-translate-x-px hover:-translate-y-px hover:shadow-[3px_3px_0_#1A1A2E]">{skill}</span>
               ))}
             </div>
           </div>
@@ -83,51 +83,5 @@ const categories: SkillCategory[] = [
       opacity: 1;
       transform: translateY(0);
     }
-  }
-</style>
-
-<style>
-  .skill-card {
-    overflow: hidden;
-    animation: cardSlideIn 0.5s ease-out both;
-  }
-
-  .card-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    border-bottom: 3px solid #1A1A2E;
-  }
-
-  .skill-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #1A1A2E;
-  }
-
-  .card-body {
-    padding: 1rem;
-  }
-
-  .skill-tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.3rem 0.75rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #1A1A2E;
-    background: #FFF8E7;
-    border: 2px solid #1A1A2E;
-    box-shadow: 2px 2px 0 #1A1A2E;
-    white-space: nowrap;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-  }
-
-  .skill-tag:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 3px 3px 0 #1A1A2E;
   }
 </style>
