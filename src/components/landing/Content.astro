@@ -1,11 +1,17 @@
 ---
 import Contact from "./Contact.astro";
 import Experiances from "./Experiances.astro";
+import Projects from "./Projects.astro";
 import Skills from "./Skills.astro";
 ---
 
-<div class="space-y-16">
-  <Skills />
-  <Experiances />
+<div class="space-y-16 lg:space-y-8">
+  <div class="space-y-16 lg:space-y-0 lg:grid lg:grid-cols-5 lg:gap-8 lg:items-start">
+    <div class="lg:col-span-2 space-y-16 lg:space-y-8">
+      <Skills />
+      <Experiances />
+    </div>
+    <div class="lg:col-span-3 min-w-0"><Projects /></div>
+  </div>
   <Contact />
 </div>

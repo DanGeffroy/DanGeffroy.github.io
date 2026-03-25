@@ -26,6 +26,11 @@ export const contact: Contact[] = [
     title: "https://twitter.com/adNNNNj (not realy active)",
   },
   {
+    link: "https://www.linkedin.com/in/dan-geffroy/",
+    type: "LinkedIn",
+    title: "linkedin.com/in/dan-geffroy",
+  },
+  {
     link: "mailto:ogzmovie@gmail.com",
     type: "Email",
     title: "ogzmovie@gmail.com",

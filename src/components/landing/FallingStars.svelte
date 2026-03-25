@@ -145,15 +145,4 @@
   });
 </script>
 
-<canvas bind:this={canvas} class="falling-stars"></canvas>
-
-<style>
-  .falling-stars {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-  }
-</style>
+<canvas bind:this={canvas} class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>

@@ -2,11 +2,18 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/landing/Header.astro";
 import Content from "../components/landing/Content.astro";
+import ShapePlayground from "../components/landing/ShapePlayground.svelte";
 ---
 
 <Layout>
-  <main class="relative mx-auto max-w-3xl px-6 py-12 md:py-20">
+  <ShapePlayground client:load />
+  <a href="#main-content" class="absolute -top-full left-0 px-4 py-2 bg-brutal-yellow border-[3px] border-ink font-extrabold text-ink no-underline z-[9999] focus:top-0">Skip to main content</a>
+  <main id="main-content" aria-label="Portfolio" class="relative z-10 mx-auto max-w-3xl px-6 pt-12 md:pt-20 lg:max-w-6xl">
     <Header />
     <Content />
   </main>
+  <div id="shape-spawn-trigger" class="h-1" aria-hidden="true"></div>
+  <div class="relative z-10 flex items-center justify-center h-[15vh]" aria-hidden="true">
+    <p class="text-sm font-black uppercase tracking-widest text-ink/15 select-none animate-bounce">drag the shapes!</p>
+  </div>
 </Layout>

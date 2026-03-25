@@ -57,23 +57,6 @@
   });
 </script>
 
-<span class="typewriter">
-  {displayed}<span class="cursor" class:visible={showCursor} class:invisible={!showCursor}>|</span>
+<span class="inline">
+  '{displayed}<span class="font-light text-brutal-pink" class:opacity-100={showCursor} class:opacity-0={!showCursor}>|</span>'
 </span>
-
-<style>
-  .typewriter {
-    display: inline;
-  }
-  .cursor {
-    font-weight: 300;
-    color: #FF6B9D;
-    animation: none;
-  }
-  .visible {
-    opacity: 1;
-  }
-  .invisible {
-    opacity: 0;
-  }
-</style>

@@ -9,7 +9,7 @@ import "@fontsource/inter/900.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <BaseHead />
   </head>
@@ -19,14 +19,6 @@ import "@fontsource/inter/900.css";
   >
     <slot />
     <style is:global>
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
       /* === NEO-BRUTALIST BASE === */
       body {
         background-color: #FFF8E7;
@@ -104,6 +96,45 @@ import "@fontsource/inter/900.css";
           transform: translateY(0);
         }
       }
+
+      /* === ACCESSIBILITY === */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      :focus-visible {
+        outline: 3px solid #FF6B9D;
+        outline-offset: 3px;
+      }
+
+      /* === SCROLL-TRIGGERED ANIMATIONS === */
+      .brutal-card {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .brutal-card.in-view {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+
     </style>
+
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.brutal-card').forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>
