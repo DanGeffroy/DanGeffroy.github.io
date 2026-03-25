@@ -10,7 +10,7 @@ export const details: Template[] = [
   {
     link: "https://github.com/dangeffroy",
     title: "Side projects",
-    desc: "I use side project to keep up with technology constantly evolving, right now i use Astro and Svelte to build this website",
+    desc: "I use side project to keep up with technology constantly evolving, right now I use Astro and Svelte to build this website",
     location: "Nantes, France",
     date: "∞",
   },
