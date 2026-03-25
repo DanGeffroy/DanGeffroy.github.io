@@ -17,6 +17,7 @@ import "@fontsource/inter/900.css";
   <body
     class="min-h-screen bg-cream font-sans text-ink antialiased selection:bg-brutal-pink/40 selection:text-ink"
   >
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <slot />
     <style is:global>
       * {
@@ -25,6 +26,23 @@ import "@fontsource/inter/900.css";
 
       html {
         scroll-behavior: smooth;
+      }
+
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        padding: 0.5rem 1rem;
+        background: #1A1A2E;
+        color: #FFF8E7;
+        font-weight: 700;
+        font-size: 0.875rem;
+        z-index: 9999;
+        border: 3px solid #FF6B9D;
+        text-decoration: none;
+      }
+      .skip-link:focus {
+        top: 0;
       }
 
       /* === NEO-BRUTALIST BASE === */

@@ -1,0 +1,70 @@
+---
+const items = [
+  "Software Engineer",
+  "Front-end Specialist",
+  "Angular",
+  "Svelte",
+  "React",
+  "TypeScript",
+  "Nantes, France",
+  "Lead Developer",
+  "Open Source",
+  "Neo-Brutalist",
+];
+---
+
+<div class="marquee-wrapper" aria-hidden="true">
+  <div class="marquee-track">
+    {[...items, ...items].map((item) => (
+      <span class="marquee-item">
+        {item}
+        <span class="marquee-separator">✦</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee-wrapper {
+    overflow: hidden;
+    border-top: 3px solid #1A1A2E;
+    border-bottom: 3px solid #1A1A2E;
+    background: #FF6B9D;
+    padding: 0.6rem 0;
+    margin: 2rem -1.5rem;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+    width: max-content;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #1A1A2E;
+    padding: 0 0.5rem;
+  }
+
+  .marquee-separator {
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+    font-size: 0.6rem;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>

@@ -23,7 +23,7 @@ export const contact: Contact[] = [
   {
     link: "https://twitter.com/adNNNNj",
     type: "Twitter",
-    title: "https://twitter.com/adNNNNj (not realy active)",
+    title: "https://twitter.com/adNNNNj (not really active)",
   },
   {
     link: "mailto:ogzmovie@gmail.com",

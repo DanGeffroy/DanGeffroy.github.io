@@ -1,0 +1,58 @@
+---
+const interests = [
+  { emoji: "🏃", label: "Running" },
+  { emoji: "🎮", label: "Gaming" },
+  { emoji: "🎵", label: "Music" },
+  { emoji: "✈️", label: "Travel" },
+  { emoji: "☕", label: "Coffee" },
+  { emoji: "🐱", label: "Cats" },
+  { emoji: "📚", label: "Tech blogs" },
+  { emoji: "🎬", label: "Cinema" },
+];
+---
+
+<section class="fade-in-delay-2">
+  <h2 class="section-title">
+    Interests
+  </h2>
+
+  <div class="interests-grid">
+    {interests.map((interest, i) => (
+      <div
+        class="interest-tag brutal-card"
+        style={`animation-delay: ${0.1 + i * 0.05}s`}
+      >
+        <span class="interest-emoji" aria-hidden="true">{interest.emoji}</span>
+        <span class="interest-label">{interest.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .interests-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .interest-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    animation: cardSlideIn 0.5s ease-out both;
+  }
+
+  .interest-emoji {
+    font-size: 1.25rem;
+  }
+
+  .interest-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #1A1A2E;
+  }
+</style>

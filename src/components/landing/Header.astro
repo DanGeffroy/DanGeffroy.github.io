@@ -17,6 +17,10 @@ import TypeWriter from "./TypeWriter.svelte";
         Dan '<span class="accent-text"><TypeWriter client:load /></span>' GEFFROY
       </h1>
       <p class="mt-2 text-base font-bold uppercase tracking-wide text-ink/70">Software Engineer in Nantes / France</p>
+      <div class="availability-badge">
+        <span class="status-dot"></span>
+        Open to opportunities
+      </div>
       <a
         class="brutal-link mt-2 inline-block"
         href="https://dangeffroy.github.io"
@@ -83,5 +87,34 @@ import TypeWriter from "./TypeWriter.svelte";
   .brutal-link:hover {
     color: #FF6B9D;
     border-color: #FF6B9D;
+  }
+
+  .availability-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #1A1A2E;
+    background: #06D6A0;
+    border: 2px solid #1A1A2E;
+    box-shadow: 2px 2px 0 #1A1A2E;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: #1A1A2E;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
   }
 </style>
